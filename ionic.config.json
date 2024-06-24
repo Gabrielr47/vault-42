@@ -1,0 +1,8 @@
+{
+  "name": "Vault 42",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "ec4a1678"
+}
