@@ -7,15 +7,8 @@ const GET_CATEGORY_LIST = gql`
       items {
         Image {
           _id
-          caption
-          credit
-          description
-          filename
-          mimeType
           path
-          sourceUrl
           title
-          uploadStatus
         }
         _id
         description
@@ -32,15 +25,8 @@ const GET_CATEGORY_BY_ID = gql`
     getCategory(_id: $_id) {
       Image {
         _id
-        caption
-        credit
-        description
-        filename
-        mimeType
         path
-        sourceUrl
         title
-        uploadStatus
       }
       _id
       description

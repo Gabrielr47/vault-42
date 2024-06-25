@@ -35,3 +35,25 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+ion-grid {
+  --ion-grid-padding: 6px;
+  --ion-grid-column-padding: 6px;
+}
+
+ion-card {
+  max-width: var(--card-width);
+  height: 100%;
+
+  img {
+    width: var(--card-width);
+    max-width: var(--card-width);
+    max-height: var(--card-width);
+    height: var(--card-height);
+  }
+
+  ion-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
