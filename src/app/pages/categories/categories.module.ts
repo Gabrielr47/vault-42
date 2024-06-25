@@ -10,6 +10,7 @@ import { CategoriesPage } from './categories.page';
 import { CategoryListComponent } from '@app/components/category/category-list/category-list.component';
 import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
+import { SearchComponent } from '@app/components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skele
     IonicModule,
     CategoriesPageRoutingModule,
     AssetImageUrlPipe,
+    SearchComponent,
   ],
 })
 export class CategoriesPageModule {}

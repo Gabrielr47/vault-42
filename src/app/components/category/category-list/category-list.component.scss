@@ -11,7 +11,7 @@ ion-card {
     width: var(--card-width);
     max-width: var(--card-width);
     max-height: var(--card-width);
-    height: auto;
+    height: var(--card-height);
   }
 
   ion-card-title {

@@ -3,7 +3,10 @@
   <ion-row>
     @for(category of categoryList; track category._id) {
     <ion-col size-xs="6" size-md="3" size-lg="2">
-      <ion-card [routerLink]="['/category/', category.slug]">
+      <ion-card
+        [routerLink]="['/category/', category.slug]"
+        [queryParams]="{ id: category._id }"
+      >
         <img
           [alt]="category.title"
           [src]="category.Image.path | assetImageUrl"
