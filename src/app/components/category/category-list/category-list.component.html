@@ -1,9 +1,14 @@
-@for(category of categoryList$ | async; track category._id) {
-<ion-card>
-  <img [alt]="category.title" [src]="getImageUrl(category.Image.path)" />
-  <ion-card-header>
-    <ion-card-title>{{ category.title }}</ion-card-title>
-  </ion-card-header>
-  <ion-card-content> </ion-card-content>
-</ion-card>
-}
+<ion-grid>
+  <ion-row>
+    @for(category of categoryList$ | async; track category._id) {
+    <ion-col size-xs="6" size-md="3" size-lg="2">
+      <ion-card>
+        <img [alt]="category.title" [src]="getImageUrl(category.Image.path)" />
+        <ion-card-header>
+          <ion-card-title>{{ category.title }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    }
+  </ion-row>
+</ion-grid>

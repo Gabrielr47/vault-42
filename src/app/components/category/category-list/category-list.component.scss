@@ -1,0 +1,21 @@
+ion-grid {
+  --ion-grid-padding: 6px;
+  --ion-grid-column-padding: 6px;
+}
+
+ion-card {
+  max-width: 200px;
+  height: 100%;
+
+  img {
+    width: auto;
+    max-width: 200px;
+    max-height: 200px;
+    height: auto;
+  }
+
+  ion-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
