@@ -1,6 +1,7 @@
+@if (categoryList$ | async; as categoryList) {
 <ion-grid>
   <ion-row>
-    @for(category of categoryList$ | async; track category._id) {
+    @for(category of categoryList; track category._id) {
     <ion-col size-xs="6" size-md="3" size-lg="2">
       <ion-card [routerLink]="['/category/', category.slug]">
         <img
@@ -15,3 +16,6 @@
     }
   </ion-row>
 </ion-grid>
+} @else {
+<app-skeleton-loading [items]="13"></app-skeleton-loading>
+}
