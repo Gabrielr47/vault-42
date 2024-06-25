@@ -8,14 +8,16 @@ import { CategoriesPageRoutingModule } from './categories-routing.module';
 
 import { CategoriesPage } from './categories.page';
 import { CategoryListComponent } from '@app/components/category/category-list/category-list.component';
+import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 
 @NgModule({
+  declarations: [CategoriesPage, CategoryListComponent],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     CategoriesPageRoutingModule,
+    AssetImageUrlPipe,
   ],
-  declarations: [CategoriesPage, CategoryListComponent],
 })
 export class CategoriesPageModule {}

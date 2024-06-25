@@ -20,6 +20,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'category/:slug',
+    loadChildren: () =>
+      import('./pages/category/category.module').then(
+        (m) => m.CategoryPageModule
+      ),
+  },
+  {
     path: 'products',
     loadChildren: () =>
       import('./pages/products/products.module').then(

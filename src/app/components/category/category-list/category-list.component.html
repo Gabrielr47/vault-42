@@ -2,8 +2,11 @@
   <ion-row>
     @for(category of categoryList$ | async; track category._id) {
     <ion-col size-xs="6" size-md="3" size-lg="2">
-      <ion-card>
-        <img [alt]="category.title" [src]="getImageUrl(category.Image.path)" />
+      <ion-card [routerLink]="['/category/', category.slug]">
+        <img
+          [alt]="category.title"
+          [src]="category.Image.path | assetImageUrl"
+        />
         <ion-card-header>
           <ion-card-title>{{ category.title }}</ion-card-title>
         </ion-card-header>

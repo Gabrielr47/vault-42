@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { AssetsService } from '@app/services/assets.service';
+import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 import { CategoryService } from '@app/services/category.service';
 import { Observable, map } from 'rxjs';
 
@@ -8,14 +8,12 @@ import { Observable, map } from 'rxjs';
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [AssetImageUrlPipe],
 })
 export class CategoryListComponent implements OnInit {
   categoryList$: Observable<any> | undefined;
 
-  constructor(
-    private readonly categoryService: CategoryService,
-    private readonly assetsService: AssetsService
-  ) {}
+  constructor(private readonly categoryService: CategoryService) {}
 
   ngOnInit(): void {
     this.categoryList$ = this.categoryService
@@ -25,9 +23,5 @@ export class CategoryListComponent implements OnInit {
           return result.data.getCategoryList.items || [];
         })
       );
-  }
-
-  getImageUrl(path: string) {
-    return this.assetsService.getImageUrl(path);
   }
 }
