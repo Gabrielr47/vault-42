@@ -2095,6 +2095,13 @@ export type GetProductListQueryVariables = Exact<{
 
 export type GetProductListQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, slug: string, name: string, price: number, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string } | null, image?: { __typename?: 'Asset', _id?: string | null, path: string } | null }> } | null };
 
+export type GetProductListBySlugQueryVariables = Exact<{
+  where?: InputMaybe<TsWhereProductInput>;
+}>;
+
+
+export type GetProductListBySlugQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, slug: string, name: string, price: number, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string } | null, image?: { __typename?: 'Asset', _id?: string | null, path: string } | null }> } | null };
+
 export const GetCategoryListDocument = gql`
     query getCategoryList {
   getCategoryList {
@@ -2182,6 +2189,41 @@ export const GetProductListDocument = gql`
   })
   export class GetProductListGQL extends Apollo.Query<GetProductListQuery, GetProductListQueryVariables> {
     document = GetProductListDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const GetProductListBySlugDocument = gql`
+    query getProductListBySlug($where: TSWhereProductInput) {
+  getProductList(where: $where) {
+    items {
+      _id
+      category {
+        _id
+        description
+        slug
+        title
+      }
+      description
+      image {
+        _id
+        path
+      }
+      slug
+      name
+      price
+    }
+    total
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class GetProductListBySlugGQL extends Apollo.Query<GetProductListBySlugQuery, GetProductListBySlugQueryVariables> {
+    document = GetProductListBySlugDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

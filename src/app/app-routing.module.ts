@@ -34,6 +34,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'product/:slug',
+    loadChildren: () =>
+      import('./pages/product/product.module').then((m) => m.ProductPageModule),
+  },
+  {
     path: 'about',
     loadChildren: () =>
       import('./pages/about/about.module').then((m) => m.AboutPageModule),
