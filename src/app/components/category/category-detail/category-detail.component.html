@@ -1,0 +1,10 @@
+@if (category$ | async; as category) {
+<ion-list>
+  <ion-item lines="none">
+    <ion-avatar aria-hidden="true" slot="start">
+      <img [alt]="category.title" [src]="category.Image.path | assetImageUrl" />
+    </ion-avatar>
+    <ion-label>{{ category.title }}</ion-label>
+  </ion-item>
+</ion-list>
+}

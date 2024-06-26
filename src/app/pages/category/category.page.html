@@ -8,10 +8,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  @if (category$ | async; as category) {
-  <ion-avatar aria-hidden="true" slot="start">
-    <img [alt]="category.title" [src]="category.Image.path | assetImageUrl" />
-  </ion-avatar>
-  <h1>{{ category.title }}</h1>
+  @if (slug) {
+  <app-category-detail [slug]="slug"></app-category-detail>
   }
 </ion-content>

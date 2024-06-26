@@ -9,6 +9,7 @@ import { CategoryPageRoutingModule } from './category-routing.module';
 import { CategoryPage } from './category.page';
 import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 import { SearchComponent } from '@app/components/search/search.component';
+import { CategoryDetailComponent } from '@app/components/category/category-detail/category-detail.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { SearchComponent } from '@app/components/search/search.component';
     AssetImageUrlPipe,
     SearchComponent,
   ],
-  declarations: [CategoryPage],
+  declarations: [CategoryPage, CategoryDetailComponent],
 })
 export class CategoryPageModule {}

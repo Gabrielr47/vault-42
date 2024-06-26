@@ -8,6 +8,7 @@ import { ProductsPageRoutingModule } from './products-routing.module';
 
 import { ProductsPage } from './products.page';
 import { SearchComponent } from '@app/components/search/search.component';
+import { ProductListComponent } from '@app/components/product/product-list/product-list.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { SearchComponent } from '@app/components/search/search.component';
     ProductsPageRoutingModule,
     SearchComponent,
   ],
-  declarations: [ProductsPage],
+  declarations: [ProductsPage, ProductListComponent],
 })
 export class ProductsPageModule {}

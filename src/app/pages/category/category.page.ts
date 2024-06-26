@@ -11,20 +11,10 @@ import { CategoriesPage } from '../categories/categories.page';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoryPage implements OnInit {
-  category$: Observable<any> | undefined;
-  component = CategoriesPage;
-  constructor(
-    private route: ActivatedRoute,
-    private readonly categoryService: CategoryService
-  ) {}
+  slug: string | undefined;
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    const slug = this.route.snapshot.paramMap.get('slug');
-    const id = this.route.snapshot.queryParams['id'];
-    this.category$ = this.categoryService.getCategory(id).valueChanges.pipe(
-      map((result: any) => {
-        return result.data.getCategory;
-      })
-    );
+    this.slug = this.route.snapshot.paramMap.get('slug') as string;
   }
 }

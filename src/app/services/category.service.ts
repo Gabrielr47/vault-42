@@ -1,40 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Apollo, gql } from 'apollo-angular';
-
-const GET_CATEGORY_LIST = gql`
-  {
-    getCategoryList {
-      items {
-        Image {
-          _id
-          path
-          title
-        }
-        _id
-        description
-        slug
-        title
-      }
-      total
-    }
-  }
-`;
-
-const GET_CATEGORY_BY_ID = gql`
-  query ($_id: ID!) {
-    getCategory(_id: $_id) {
-      Image {
-        _id
-        path
-        title
-      }
-      _id
-      description
-      slug
-      title
-    }
-  }
-`;
+import { Apollo } from 'apollo-angular';
+import {
+  GET_CATEGORY_BY_SLUG,
+  GET_CATEGORY_LIST,
+} from './category.graphql.query';
 
 @Injectable({
   providedIn: 'root',
@@ -48,11 +17,15 @@ export class CategoryService {
     });
   }
 
-  getCategory(_id: string) {
+  getCategoryBySlug(slug: string) {
     return this.apollo.watchQuery({
-      query: GET_CATEGORY_BY_ID,
+      query: GET_CATEGORY_BY_SLUG,
       variables: {
-        _id,
+        where: {
+          slug: {
+            eq: slug,
+          },
+        },
       },
     });
   }
