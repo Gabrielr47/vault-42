@@ -4,7 +4,7 @@ import {
   OnInit,
   input,
 } from '@angular/core';
-import { CategoryResponse } from '@app/models/category.model';
+import { GetCategoryListQuery } from '@app/graphql.generated';
 import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 import { CategoryService } from '@app/services/category.service';
 import { Observable, map } from 'rxjs';
@@ -17,7 +17,9 @@ import { Observable, map } from 'rxjs';
   providers: [AssetImageUrlPipe],
 })
 export class CategoryListComponent implements OnInit {
-  categoryList$: Observable<CategoryResponse> | undefined;
+  categoryList$:
+    | Observable<GetCategoryListQuery['getCategoryList']>
+    | undefined;
   isResultsTextVisible = input(false);
 
   constructor(private readonly categoryService: CategoryService) {}
@@ -25,8 +27,6 @@ export class CategoryListComponent implements OnInit {
   ngOnInit(): void {
     this.categoryList$ = this.categoryService
       .getCategoryList()
-      .valueChanges.pipe(
-        map((result: any) => result?.data?.getCategoryList as CategoryResponse)
-      );
+      .valueChanges.pipe(map((result) => result.data.getCategoryList));
   }
 }

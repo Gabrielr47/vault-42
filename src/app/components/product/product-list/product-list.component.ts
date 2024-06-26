@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { GetProductListQuery } from '@app/graphql.generated';
 import { ProductService } from '@app/services/product.service';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import {
@@ -21,7 +22,7 @@ export class ProductListComponent implements OnInit {
   private readonly productSize = 20;
   private productFrom$ = new BehaviorSubject<number>(this.productSize);
 
-  productList$: Observable<any> | undefined;
+  productList$: Observable<GetProductListQuery['getProductList']> | undefined;
   #currentInfiniteEvent!: InfiniteScrollCustomEvent | null;
 
   constructor(private readonly productService: ProductService) {}
@@ -40,10 +41,10 @@ export class ProductListComponent implements OnInit {
           this.#currentInfiniteEvent = null;
         }
       }),
-      map((result: any) => result?.data?.getProductList),
+      map((result) => result?.data?.getProductList),
       scan((acc, value) => ({
-        items: [...acc.items, ...value.items],
-        total: value.total,
+        items: [...(acc?.items ?? []), ...(value?.items ?? [])],
+        total: value?.total ?? 0,
       }))
     );
   }

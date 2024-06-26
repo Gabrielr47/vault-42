@@ -1,30 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Apollo } from 'apollo-angular';
 import {
-  GET_CATEGORY_BY_SLUG,
-  GET_CATEGORY_LIST,
-} from './category.graphql.query';
+  GetCategoryBySlugGQL,
+  GetCategoryListGQL,
+} from '@app/graphql.generated';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  constructor(private readonly apollo: Apollo) {}
+  constructor(
+    private getCategoryListGQL: GetCategoryListGQL,
+    private getCategoryBySlugGQL: GetCategoryBySlugGQL
+  ) {}
 
   getCategoryList() {
-    return this.apollo.watchQuery({
-      query: GET_CATEGORY_LIST,
-    });
+    return this.getCategoryListGQL.watch();
   }
 
   getCategoryBySlug(slug: string) {
-    return this.apollo.watchQuery({
-      query: GET_CATEGORY_BY_SLUG,
-      variables: {
-        where: {
-          slug: {
-            eq: slug,
-          },
+    return this.getCategoryBySlugGQL.watch({
+      where: {
+        slug: {
+          eq: slug,
         },
       },
     });

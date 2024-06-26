@@ -1,7 +1,7 @@
 import { gql } from 'apollo-angular';
 
 export const GET_CATEGORY_LIST = gql`
-  {
+  query getCategoryList {
     getCategoryList {
       items {
         Image {

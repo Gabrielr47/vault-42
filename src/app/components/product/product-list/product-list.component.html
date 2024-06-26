@@ -5,14 +5,18 @@
   <ion-row>
     @for(product of productList.items; track product._id) {
     <ion-col size-xs="6" size-md="3" size-lg="2">
-      <ion-card [routerLink]="['/product/']">
-        <img [alt]="product.title" [src]="product.image.path | assetImageUrl" />
+      <ion-card [routerLink]="['/product/', product.slug]">
+        <img
+          [alt]="product.name"
+          *ngIf="product.image"
+          [src]="product.image.path | assetImageUrl"
+        />
         <ion-card-header>
           <ion-card-title>{{ product.name }}</ion-card-title>
         </ion-card-header>
-        <ion-item lines="none">
+        <ion-card-content>
           <ion-badge color="primary">{{ product.price }} €</ion-badge>
-        </ion-item>
+        </ion-card-content>
       </ion-card>
     </ion-col>
     }

@@ -7,6 +7,7 @@
       <ion-card [routerLink]="['/category/', category.slug]">
         <img
           [alt]="category.title"
+          *ngIf="category.Image"
           [src]="category.Image.path | assetImageUrl"
         />
         <ion-card-header>

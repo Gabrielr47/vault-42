@@ -2,9 +2,13 @@
 <ion-list>
   <ion-item lines="none">
     <ion-avatar aria-hidden="true" slot="start">
-      <img [alt]="category.title" [src]="category.Image.path | assetImageUrl" />
+      <img
+        [alt]="category.items[0].title"
+        *ngIf="category.items[0].Image?.path"
+        [src]="category.items[0].Image?.path ?? '' | assetImageUrl"
+      />
     </ion-avatar>
-    <ion-label>{{ category.title }}</ion-label>
+    <ion-label>{{ category.items[0].title }}</ion-label>
   </ion-item>
 </ion-list>
 }

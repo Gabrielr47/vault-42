@@ -1,5 +1,5 @@
 import { Component, OnInit, input } from '@angular/core';
-import { Category } from '@app/models/category.model';
+import { GetCategoryBySlugQuery } from '@app/graphql.generated';
 import { CategoryService } from '@app/services/category.service';
 import { Observable, map } from 'rxjs';
 
@@ -10,16 +10,13 @@ import { Observable, map } from 'rxjs';
 })
 export class CategoryDetailComponent implements OnInit {
   slug = input('');
-  category$: Observable<Category> | undefined;
+  category$: Observable<GetCategoryBySlugQuery['getCategoryList']> | undefined;
 
   constructor(private readonly categoryService: CategoryService) {}
 
   ngOnInit() {
     this.category$ = this.categoryService
       .getCategoryBySlug(this.slug())
-      .valueChanges.pipe(
-        // TODO: Add error handling and fix the type of the result
-        map((result: any) => result?.data?.getCategoryList.items[0] as Category)
-      );
+      .valueChanges.pipe(map((result) => result.data.getCategoryList));
   }
 }

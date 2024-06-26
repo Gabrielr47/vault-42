@@ -1,7 +1,7 @@
 import { gql } from 'apollo-angular';
 
 export const GET_PRODUCT_LIST = gql`
-  query ($size: Int, $from: Int) {
+  query getProductList($size: Int, $from: Int) {
     getProductList(size: $size, from: $from) {
       items {
         _id
@@ -16,6 +16,7 @@ export const GET_PRODUCT_LIST = gql`
           _id
           path
         }
+        slug
         name
         price
       }
