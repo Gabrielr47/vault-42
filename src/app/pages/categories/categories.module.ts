@@ -9,15 +9,11 @@ import { CategoriesPageRoutingModule } from './categories-routing.module';
 import { CategoriesPage } from './categories.page';
 import { CategoryListComponent } from '@app/components/category/category-list/category-list.component';
 import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
-import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
 import { SearchComponent } from '@app/components/search/search.component';
+import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
 
 @NgModule({
-  declarations: [
-    CategoriesPage,
-    CategoryListComponent,
-    SkeletonLoadingComponent,
-  ],
+  declarations: [CategoriesPage, CategoryListComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -25,6 +21,7 @@ import { SearchComponent } from '@app/components/search/search.component';
     CategoriesPageRoutingModule,
     AssetImageUrlPipe,
     SearchComponent,
+    SkeletonLoadingComponent,
   ],
 })
 export class CategoriesPageModule {}

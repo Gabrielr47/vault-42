@@ -9,6 +9,8 @@ import { ProductsPageRoutingModule } from './products-routing.module';
 import { ProductsPage } from './products.page';
 import { SearchComponent } from '@app/components/search/search.component';
 import { ProductListComponent } from '@app/components/product/product-list/product-list.component';
+import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
+import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
 
 @NgModule({
   imports: [
@@ -17,6 +19,8 @@ import { ProductListComponent } from '@app/components/product/product-list/produ
     IonicModule,
     ProductsPageRoutingModule,
     SearchComponent,
+    AssetImageUrlPipe,
+    SkeletonLoadingComponent,
   ],
   declarations: [ProductsPage, ProductListComponent],
 })
