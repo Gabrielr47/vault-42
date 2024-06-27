@@ -1,31 +1,39 @@
-<ion-searchbar
-  [placeholder]="placeholder()"
-  animated="true"
-  show-clear-button="focus"
-  (ionInput)="onSearchInput($event)"
-  (ionClear)="onSearchClear()"
-  [(ngModel)]="searchTerm"
-></ion-searchbar>
-
-@if (products$ | async; as products) {
-  <p class="search-results-title">
-    Search Results: <b> {{ products.total }} </b> Products Found
-  </p>
-  <ion-list>
-    @for (product of products.items; track product._id) {
-      <ion-item
-        [routerLink]="['/product', product.slug]"
-        (click)="onSearchClear()"
-      >
-        @if (product.image?.path) {
-          <ion-avatar aria-hidden="true" slot="start">
-            <img [src]="product.image!.path | assetImageUrl" />
-          </ion-avatar>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar
+      [placeholder]="placeholder()"
+      animated="true"
+      show-clear-button="focus"
+      (ionInput)="onSearchInput($event)"
+      (ionClear)="onSearchClear()"
+      [(ngModel)]="searchTerm"
+    ></ion-searchbar>
+  </ion-toolbar>
+  @if (products$ | async; as products) {
+    <ion-toolbar>
+      <p class="search-results-title">
+        Search Results: <b> {{ products.total }} </b> Products Found
+      </p>
+      <ion-list>
+        @for (product of products.items; track product._id) {
+          <ion-item
+            [routerLink]="['/product', product.slug]"
+            (click)="onSearchClear()"
+          >
+            @if (product.image?.path) {
+              <ion-avatar aria-hidden="true" slot="start">
+                <img [src]="product.image!.path | assetImageUrl" />
+              </ion-avatar>
+            }
+            <ion-label>
+              <h2>{{ product.name }}</h2>
+            </ion-label>
+          </ion-item>
         }
-        <ion-label>
-          <h2>{{ product.name }}</h2>
-        </ion-label>
-      </ion-item>
-    }
-  </ion-list>
-}
+      </ion-list>
+    </ion-toolbar>
+  }
+</ion-header>
