@@ -21,7 +21,8 @@ import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skele
     SearchComponent,
     AssetImageUrlPipe,
     SkeletonLoadingComponent,
+    ProductListComponent,
   ],
-  declarations: [ProductsPage, ProductListComponent],
+  declarations: [ProductsPage],
 })
 export class ProductsPageModule {}

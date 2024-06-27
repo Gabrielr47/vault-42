@@ -9,8 +9,8 @@ describe('SkeletonLoadingComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SkeletonLoadingComponent],
-      imports: [IonicModule.forRoot()],
+      declarations: [],
+      imports: [IonicModule.forRoot(), SkeletonLoadingComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SkeletonLoadingComponent);

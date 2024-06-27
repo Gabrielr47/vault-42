@@ -1,5 +1,5 @@
 @if (product$ | async; as product) {
-  <section *ngIf="product.items[0]" class="product-card">
+  <section class="product-card">
     <ion-img
       [alt]="product.items[0].name"
       *ngIf="product.items[0].image?.path"
@@ -21,4 +21,6 @@
       Add to Cart
     </ion-button>
   </section>
+} @else {
+  <ion-spinner></ion-spinner>
 }

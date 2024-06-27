@@ -1,7 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
 import { GetProductListQuery } from '@app/core/graphql/product.graphql.generated';
 import { ProductService } from '@app/core/product.service';
-import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
+import { InfiniteScrollCustomEvent, IonicModule } from '@ionic/angular';
 import {
   BehaviorSubject,
   Observable,
@@ -17,6 +21,14 @@ import {
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    IonicModule,
+    AssetImageUrlPipe,
+    CommonModule,
+    RouterModule,
+    SkeletonLoadingComponent,
+  ],
 })
 export class ProductListComponent implements OnInit {
   private readonly productSize = 20;
@@ -41,7 +53,7 @@ export class ProductListComponent implements OnInit {
           this.currentInfiniteEvent = null;
         }
       }),
-      map((result) => result?.data?.getProductList),
+      map((result) => result.data.getProductList),
       scan((acc, value) => ({
         items: [...(acc?.items ?? []), ...(value?.items ?? [])],
         total: value?.total ?? 0,

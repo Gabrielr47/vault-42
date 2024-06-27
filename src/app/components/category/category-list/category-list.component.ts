@@ -22,7 +22,6 @@ import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skele
   imports: [
     IonicModule,
     AssetImageUrlPipe,
-    AsyncPipe,
     CommonModule,
     RouterModule,
     SkeletonLoadingComponent,
@@ -32,7 +31,6 @@ export class CategoryListComponent implements OnInit {
   categoryList$:
     | Observable<GetCategoryListQuery['getCategoryList']>
     | undefined;
-  isResultsTextVisible = input(false);
 
   constructor(private readonly categoryService: CategoryService) {}
 

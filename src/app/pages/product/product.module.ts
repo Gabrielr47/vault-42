@@ -19,7 +19,8 @@ import { SearchComponent } from '@app/components/search/search.component';
     ProductPageRoutingModule,
     AssetImageUrlPipe,
     SearchComponent,
+    ProductDetailComponent,
   ],
-  declarations: [ProductPage, ProductDetailComponent],
+  declarations: [ProductPage],
 })
 export class ProductPageModule {}

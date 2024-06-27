@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { SearchComponent } from './search.component';
+import { ApolloTestingModule } from 'apollo-angular/testing';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -9,8 +10,9 @@ describe('SearchComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [SearchComponent],
-      imports: [IonicModule.forRoot()],
+      declarations: [],
+      providers: [],
+      imports: [IonicModule.forRoot(), ApolloTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchComponent);

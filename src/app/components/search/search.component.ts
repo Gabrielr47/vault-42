@@ -44,6 +44,10 @@ export class SearchComponent implements OnInit {
 
   constructor(private productService: ProductService) {}
 
+  ngOnInit() {
+    this.products$ = this.initSearch();
+  }
+
   onSearchInput(event: CustomEvent) {
     this.searchQuery$.next(event.detail.value);
     if (event.detail.value.length < this.minSearchLength) {
@@ -54,10 +58,6 @@ export class SearchComponent implements OnInit {
   onSearchClear() {
     this.searchQuery$.next('');
     this.searchTerm = '';
-    this.products$ = this.initSearch();
-  }
-
-  ngOnInit() {
     this.products$ = this.initSearch();
   }
 

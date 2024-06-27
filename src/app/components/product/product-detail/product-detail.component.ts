@@ -1,13 +1,23 @@
-import { Component, OnInit, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  input,
+} from '@angular/core';
 import { GetProductListBySlugQuery } from '@app/core/graphql/product.graphql.generated';
 import { ProductService } from '@app/core/product.service';
-import { ToastController } from '@ionic/angular';
+import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
+import { IonicModule, ToastController } from '@ionic/angular';
 import { Observable, interval, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [IonicModule, AssetImageUrlPipe, CommonModule],
 })
 export class ProductDetailComponent implements OnInit {
   slug = input('');

@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
+import { ApolloTestingModule } from 'apollo-angular/testing';
 import { CategoryDetailComponent } from './category-detail.component';
+import { CommonModule } from '@angular/common';
 
 describe('CategoryDetailComponent', () => {
   let component: CategoryDetailComponent;
@@ -9,8 +11,9 @@ describe('CategoryDetailComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [CategoryDetailComponent],
-      imports: [IonicModule.forRoot()],
+      declarations: [],
+      providers: [],
+      imports: [IonicModule.forRoot(), CommonModule, ApolloTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CategoryDetailComponent);
