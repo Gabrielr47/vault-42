@@ -5,12 +5,62 @@ export type GetProductListQueryVariables = Types.Exact<{
   from?: Types.InputMaybe<Types.Scalars['Int']['input']>;
 }>;
 
-
-export type GetProductListQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, slug: string, name: string, price: number, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string } | null, image?: { __typename?: 'Asset', _id?: string | null, path: string } | null }> } | null };
+export type GetProductListQuery = {
+  __typename?: 'Query';
+  getProductList?: {
+    __typename?: 'ProductPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Product';
+      _id?: string | null;
+      description?: string | null;
+      slug: string;
+      name: string;
+      price: number;
+      category?: {
+        __typename?: 'Category';
+        _id?: string | null;
+        description?: string | null;
+        slug: string;
+        title: string;
+      } | null;
+      image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        path: string;
+      } | null;
+    }>;
+  } | null;
+};
 
 export type GetProductListBySlugQueryVariables = Types.Exact<{
   where?: Types.InputMaybe<Types.TsWhereProductInput>;
 }>;
 
-
-export type GetProductListBySlugQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, slug: string, name: string, price: number, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string } | null, image?: { __typename?: 'Asset', _id?: string | null, path: string } | null }> } | null };
+export type GetProductListBySlugQuery = {
+  __typename?: 'Query';
+  getProductList?: {
+    __typename?: 'ProductPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Product';
+      _id?: string | null;
+      description?: string | null;
+      slug: string;
+      name: string;
+      price: number;
+      category?: {
+        __typename?: 'Category';
+        _id?: string | null;
+        description?: string | null;
+        slug: string;
+        title: string;
+      } | null;
+      image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        path: string;
+      } | null;
+    }>;
+  } | null;
+};

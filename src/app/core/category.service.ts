@@ -12,7 +12,7 @@ export class CategoryService {
   constructor(
     private getCategoryListGQL: GetCategoryListGQL,
     private getCategoryBySlugGQL: GetCategoryBySlugGQL,
-    private getAllProductsFromCategoryGQL: GetAllProductsFromCategoryGQL
+    private getAllProductsFromCategoryGQL: GetAllProductsFromCategoryGQL,
   ) {}
 
   getCategoryList() {

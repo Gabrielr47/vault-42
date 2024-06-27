@@ -1,44 +1,45 @@
-@if (allProductsFromCategory$ | async; as categoryProducts) { @if
-(categoryProducts.total === 0) {
-<h1>No Products found</h1>
-} @else {
-<ion-list>
-  <ion-item lines="none">
-    <ion-avatar aria-hidden="true" slot="start">
-      <img
-        [alt]="categoryProducts.items[0].category?.title"
-        *ngIf="categoryProducts.items[0].category?.Image?.path"
-        [src]="
-          categoryProducts.items[0].category?.Image?.path ?? '' | assetImageUrl
-        "
-      />
-    </ion-avatar>
-    <ion-label>
-      {{ categoryProducts.total }} Products from:
-      <b>{{ categoryProducts.items[0].category?.title }}</b>
-    </ion-label>
-  </ion-item>
-</ion-list>
-}
-<ion-row>
-  @for(product of categoryProducts.items; track product._id) {
-  <ion-col size-xs="6" size-md="3" size-lg="2">
-    <ion-card [routerLink]="['/product/', product.slug]">
-      <img
-        [alt]="product.name"
-        *ngIf="product.image"
-        [src]="product.image.path | assetImageUrl"
-      />
-      <ion-card-header>
-        <ion-card-title>{{ product.name }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-badge color="primary">{{ product.price }} €</ion-badge>
-      </ion-card-content>
-    </ion-card>
-  </ion-col>
+@if (allProductsFromCategory$ | async; as categoryProducts) {
+  @if (categoryProducts.total === 0) {
+    <h1>No Products found</h1>
+  } @else {
+    <ion-list>
+      <ion-item lines="none">
+        <ion-avatar aria-hidden="true" slot="start">
+          <img
+            [alt]="categoryProducts.items[0].category?.title"
+            *ngIf="categoryProducts.items[0].category?.Image?.path"
+            [src]="
+              categoryProducts.items[0].category?.Image?.path ?? ''
+                | assetImageUrl
+            "
+          />
+        </ion-avatar>
+        <ion-label>
+          {{ categoryProducts.total }} Products from:
+          <b>{{ categoryProducts.items[0].category?.title }}</b>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   }
-</ion-row>
+  <ion-row>
+    @for (product of categoryProducts.items; track product._id) {
+      <ion-col size-xs="6" size-md="3" size-lg="2">
+        <ion-card [routerLink]="['/product/', product.slug]">
+          <img
+            [alt]="product.name"
+            *ngIf="product.image"
+            [src]="product.image.path | assetImageUrl"
+          />
+          <ion-card-header>
+            <ion-card-title>{{ product.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-badge color="primary">{{ product.price }} €</ion-badge>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    }
+  </ion-row>
 } @else {
-<app-skeleton-loading [items]="13"></app-skeleton-loading>
+  <app-skeleton-loading [items]="13"></app-skeleton-loading>
 }

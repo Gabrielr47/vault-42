@@ -3,22 +3,35 @@ import { Injectable } from '@angular/core';
 import * as Apollo from 'apollo-angular';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
+export type MakeEmpty<
+  T extends { [key: string]: unknown },
+  K extends keyof T,
+> = { [_ in K]?: never };
+export type Incremental<T> =
+  | T
+  | {
+      [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
+    };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string; output: string; }
-  String: { input: string; output: string; }
-  Boolean: { input: boolean; output: boolean; }
-  Int: { input: number; output: number; }
-  Float: { input: number; output: number; }
+  ID: { input: string; output: string };
+  String: { input: string; output: string };
+  Boolean: { input: boolean; output: boolean };
+  Int: { input: number; output: number };
+  Float: { input: number; output: number };
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
-  JSON: { input: any; output: any; }
+  JSON: { input: any; output: any };
   /** The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
-  JSONObject: { input: any; output: any; }
+  JSONObject: { input: any; output: any };
 };
 
 export type Asset = TsSearchable & {
@@ -58,7 +71,6 @@ export type Asset = TsSearchable & {
   uploadStatus?: Maybe<Scalars['String']['output']>;
 };
 
-
 export type Asset_ReferencesArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Scalars['JSONObject']['input']>;
@@ -71,7 +83,6 @@ export type Asset_ReferencesArgs = {
   where?: InputMaybe<TsWhereAssetReferenceInput>;
 };
 
-
 export type AssetCaptionHtmlArgs = {
   classPrefix?: InputMaybe<Scalars['String']['input']>;
   headerIdPrefix?: InputMaybe<Scalars['String']['input']>;
@@ -79,14 +90,12 @@ export type AssetCaptionHtmlArgs = {
   images?: InputMaybe<TsImagesConfig>;
 };
 
-
 export type AssetCreditHtmlArgs = {
   classPrefix?: InputMaybe<Scalars['String']['input']>;
   headerIdPrefix?: InputMaybe<Scalars['String']['input']>;
   imageConfig?: InputMaybe<Scalars['JSON']['input']>;
   images?: InputMaybe<TsImagesConfig>;
 };
-
 
 export type AssetHomepageSetArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -99,7 +108,6 @@ export type AssetHomepageSetArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereHomepageInput>;
 };
-
 
 export type AssetProductSetArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -161,12 +169,10 @@ export type Category = TsSearchable & {
   title: Scalars['String']['output'];
 };
 
-
 export type CategoryImageArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 export type Category_ReferencesArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -179,7 +185,6 @@ export type Category_ReferencesArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereProductInput>;
 };
-
 
 export type CategoryProductSetArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -318,7 +323,9 @@ export type CreateTsStaticSiteInput = {
   _version?: InputMaybe<Scalars['Int']['input']>;
   baseUrl?: InputMaybe<Scalars['String']['input']>;
   destination: Scalars['String']['input'];
-  environmentVariables?: InputMaybe<Array<InputMaybe<TsStaticSiteEnvironmentVariablesInput>>>;
+  environmentVariables?: InputMaybe<
+    Array<InputMaybe<TsStaticSiteEnvironmentVariablesInput>>
+  >;
   idKey?: InputMaybe<Scalars['String']['input']>;
   privateAcl?: InputMaybe<Scalars['Boolean']['input']>;
   provider?: Scalars['String']['input'];
@@ -336,7 +343,7 @@ export type CreateTsStaticSiteResult = {
 
 export enum DefaultWorkflow {
   Disabled = 'disabled',
-  Enabled = 'enabled'
+  Enabled = 'enabled',
 }
 
 /** delete Asset input */
@@ -495,7 +502,9 @@ export type DuplicateTsStaticSiteInput = {
   _version?: InputMaybe<Scalars['Int']['input']>;
   baseUrl?: InputMaybe<Scalars['String']['input']>;
   destination?: InputMaybe<Scalars['String']['input']>;
-  environmentVariables?: InputMaybe<Array<InputMaybe<TsStaticSiteEnvironmentVariablesInput>>>;
+  environmentVariables?: InputMaybe<
+    Array<InputMaybe<TsStaticSiteEnvironmentVariablesInput>>
+  >;
   idKey?: InputMaybe<Scalars['String']['input']>;
   privateAcl?: InputMaybe<Scalars['Boolean']['input']>;
   provider?: InputMaybe<Scalars['String']['input']>;
@@ -540,12 +549,10 @@ export type HomepageHero = {
   image?: Maybe<Asset>;
 };
 
-
 export type HomepageHeroFeaturedProductArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 export type HomepageHeroImageArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -607,54 +614,45 @@ export type Mutation = {
   uploadAssets?: Maybe<Array<Maybe<Upload>>>;
 };
 
-
 export type MutationCreateAssetArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: CreateAssetInput;
 };
-
 
 export type MutationCreateCategoryArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: CreateCategoryInput;
 };
 
-
 export type MutationCreateProductArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: CreateProductInput;
 };
-
 
 export type MutationCreateTsStaticSiteArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: CreateTsStaticSiteInput;
 };
 
-
 export type MutationDeleteAssetArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: DeleteAssetInput;
 };
-
 
 export type MutationDeleteCategoryArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: DeleteCategoryInput;
 };
 
-
 export type MutationDeleteProductArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: DeleteProductInput;
 };
 
-
 export type MutationDeleteTsStaticSiteArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   input: DeleteTsStaticSiteInput;
 };
-
 
 export type MutationDuplicateAssetArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
@@ -663,14 +661,12 @@ export type MutationDuplicateAssetArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
-
 export type MutationDuplicateCategoryArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   input: DuplicateCategoryInput;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 export type MutationDuplicateProductArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
@@ -679,7 +675,6 @@ export type MutationDuplicateProductArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
-
 export type MutationDuplicateTsStaticSiteArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -687,14 +682,12 @@ export type MutationDuplicateTsStaticSiteArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
-
 export type MutationReplaceAssetArgs = {
   _id: Scalars['ID']['input'];
   _version: Scalars['Int']['input'];
   file: TsFile;
   projectId?: InputMaybe<Scalars['ID']['input']>;
 };
-
 
 export type MutationUpdateAssetArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
@@ -704,7 +697,6 @@ export type MutationUpdateAssetArgs = {
   structure?: InputMaybe<Array<InputMaybe<TsContentStructureInput>>>;
 };
 
-
 export type MutationUpdateCategoryArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -712,7 +704,6 @@ export type MutationUpdateCategoryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   structure?: InputMaybe<Array<InputMaybe<TsContentStructureInput>>>;
 };
-
 
 export type MutationUpdateHomepageArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
@@ -722,7 +713,6 @@ export type MutationUpdateHomepageArgs = {
   structure?: InputMaybe<Array<InputMaybe<TsContentStructureInput>>>;
 };
 
-
 export type MutationUpdateProductArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -730,7 +720,6 @@ export type MutationUpdateProductArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   structure?: InputMaybe<Array<InputMaybe<TsContentStructureInput>>>;
 };
-
 
 export type MutationUpdateSiteSettingsArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
@@ -740,7 +729,6 @@ export type MutationUpdateSiteSettingsArgs = {
   structure?: InputMaybe<Array<InputMaybe<TsContentStructureInput>>>;
 };
 
-
 export type MutationUpdateTsStaticSiteArgs = {
   clientMutationId?: InputMaybe<Scalars['String']['input']>;
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -748,7 +736,6 @@ export type MutationUpdateTsStaticSiteArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   structure?: InputMaybe<Array<InputMaybe<TsContentStructureInput>>>;
 };
-
 
 export type MutationUploadAssetsArgs = {
   files: Array<InputMaybe<TsFile>>;
@@ -786,7 +773,6 @@ export type Product = TsSearchable & {
   soldOut?: Maybe<Scalars['Boolean']['output']>;
 };
 
-
 export type Product_ReferencesArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   filter?: InputMaybe<Scalars['JSONObject']['input']>;
@@ -799,12 +785,10 @@ export type Product_ReferencesArgs = {
   where?: InputMaybe<TsWhereHomepageInput>;
 };
 
-
 export type ProductCategoryArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 export type ProductHeroFeaturedPostArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -817,7 +801,6 @@ export type ProductHeroFeaturedPostArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereHomepageInput>;
 };
-
 
 export type ProductImageArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -875,14 +858,12 @@ export type Query = {
   withContext?: Maybe<TsWithContext>;
 };
 
-
 /** Root of the Schema */
 export type QueryGetAssetArgs = {
   _id: Scalars['ID']['input'];
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** Root of the Schema */
 export type QueryGetAssetListArgs = {
@@ -897,7 +878,6 @@ export type QueryGetAssetListArgs = {
   where?: InputMaybe<TsWhereAssetInput>;
 };
 
-
 /** Root of the Schema */
 export type QueryGetCategoryArgs = {
   _id: Scalars['ID']['input'];
@@ -905,12 +885,10 @@ export type QueryGetCategoryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
-
 /** Root of the Schema */
 export type QueryGetCategoryBySlugArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** Root of the Schema */
 export type QueryGetCategoryListArgs = {
@@ -925,7 +903,6 @@ export type QueryGetCategoryListArgs = {
   where?: InputMaybe<TsWhereCategoryInput>;
 };
 
-
 /** Root of the Schema */
 export type QueryGetContentVersionArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -934,7 +911,6 @@ export type QueryGetContentVersionArgs = {
   version: Scalars['Int']['input'];
 };
 
-
 /** Root of the Schema */
 export type QueryGetContentVersionListArgs = {
   from?: InputMaybe<Scalars['Int']['input']>;
@@ -942,13 +918,11 @@ export type QueryGetContentVersionListArgs = {
   size?: InputMaybe<Scalars['Int']['input']>;
 };
 
-
 /** Root of the Schema */
 export type QueryGetHomepageArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** Root of the Schema */
 export type QueryGetProductArgs = {
@@ -956,7 +930,6 @@ export type QueryGetProductArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** Root of the Schema */
 export type QueryGetProductListArgs = {
@@ -971,13 +944,11 @@ export type QueryGetProductListArgs = {
   where?: InputMaybe<TsWhereProductInput>;
 };
 
-
 /** Root of the Schema */
 export type QueryGetSiteSettingsArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** Root of the Schema */
 export type QueryGetTsStaticSiteArgs = {
@@ -985,7 +956,6 @@ export type QueryGetTsStaticSiteArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** Root of the Schema */
 export type QueryGetTsStaticSiteListArgs = {
@@ -999,7 +969,6 @@ export type QueryGetTsStaticSiteListArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereTsStaticSiteInput>;
 };
-
 
 /** Root of the Schema */
 export type QuerySearchArgs = {
@@ -1017,7 +986,6 @@ export type QuerySearchArgs = {
   where?: InputMaybe<TsWhereInput>;
 };
 
-
 /** Root of the Schema */
 export type QuerySearchAssetIndexArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1029,7 +997,6 @@ export type QuerySearchAssetIndexArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereAssetInput>;
 };
-
 
 /** Root of the Schema */
 export type QuerySearchCategoryIndexArgs = {
@@ -1043,7 +1010,6 @@ export type QuerySearchCategoryIndexArgs = {
   where?: InputMaybe<TsWhereCategoryInput>;
 };
 
-
 /** Root of the Schema */
 export type QuerySearchProductIndexArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1056,7 +1022,6 @@ export type QuerySearchProductIndexArgs = {
   where?: InputMaybe<TsWhereProductInput>;
 };
 
-
 /** Root of the Schema */
 export type QuerySearchTsStaticSiteIndexArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1068,7 +1033,6 @@ export type QuerySearchTsStaticSiteIndexArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereTsStaticSiteInput>;
 };
-
 
 /** Root of the Schema */
 export type QueryTaxonomySuggestArgs = {
@@ -1084,7 +1048,6 @@ export type QueryTaxonomySuggestArgs = {
   sort?: InputMaybe<Array<InputMaybe<TsSearchSort>>>;
   terms?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** Root of the Schema */
 export type QueryWithContextArgs = {
@@ -1279,7 +1242,6 @@ export type TsVersion = {
   updatedBy?: Maybe<TsProjectMember>;
   version?: Maybe<Scalars['Int']['output']>;
 };
-
 
 export type TsVersionItemArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1679,14 +1641,12 @@ export type TsWithContext = {
   taxonomySuggest?: Maybe<TsSuggestionPaginatedList>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetAssetArgs = {
   _id: Scalars['ID']['input'];
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetAssetListArgs = {
@@ -1701,7 +1661,6 @@ export type TsWithContextGetAssetListArgs = {
   where?: InputMaybe<TsWhereAssetInput>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetCategoryArgs = {
   _id: Scalars['ID']['input'];
@@ -1709,12 +1668,10 @@ export type TsWithContextGetCategoryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetCategoryBySlugArgs = {
   slug?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetCategoryListArgs = {
@@ -1729,7 +1686,6 @@ export type TsWithContextGetCategoryListArgs = {
   where?: InputMaybe<TsWhereCategoryInput>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetContentVersionArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1738,7 +1694,6 @@ export type TsWithContextGetContentVersionArgs = {
   version: Scalars['Int']['input'];
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetContentVersionListArgs = {
   from?: InputMaybe<Scalars['Int']['input']>;
@@ -1746,13 +1701,11 @@ export type TsWithContextGetContentVersionListArgs = {
   size?: InputMaybe<Scalars['Int']['input']>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetHomepageArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetProductArgs = {
@@ -1760,7 +1713,6 @@ export type TsWithContextGetProductArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetProductListArgs = {
@@ -1775,13 +1727,11 @@ export type TsWithContextGetProductListArgs = {
   where?: InputMaybe<TsWhereProductInput>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetSiteSettingsArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetTsStaticSiteArgs = {
@@ -1789,7 +1739,6 @@ export type TsWithContextGetTsStaticSiteArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextGetTsStaticSiteListArgs = {
@@ -1803,7 +1752,6 @@ export type TsWithContextGetTsStaticSiteListArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereTsStaticSiteInput>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextSearchArgs = {
@@ -1821,7 +1769,6 @@ export type TsWithContextSearchArgs = {
   where?: InputMaybe<TsWhereInput>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextSearchAssetIndexArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1833,7 +1780,6 @@ export type TsWithContextSearchAssetIndexArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereAssetInput>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextSearchCategoryIndexArgs = {
@@ -1847,7 +1793,6 @@ export type TsWithContextSearchCategoryIndexArgs = {
   where?: InputMaybe<TsWhereCategoryInput>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextSearchProductIndexArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1860,7 +1805,6 @@ export type TsWithContextSearchProductIndexArgs = {
   where?: InputMaybe<TsWhereProductInput>;
 };
 
-
 /** This query allow you to pass context to your queries */
 export type TsWithContextSearchTsStaticSiteIndexArgs = {
   enableLocaleFallback?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1872,7 +1816,6 @@ export type TsWithContextSearchTsStaticSiteIndexArgs = {
   terms?: InputMaybe<Scalars['String']['input']>;
   where?: InputMaybe<TsWhereTsStaticSiteInput>;
 };
-
 
 /** This query allow you to pass context to your queries */
 export type TsWithContextTaxonomySuggestArgs = {
@@ -2052,7 +1995,9 @@ export type UpdateTsStaticSiteInput = {
   _version?: InputMaybe<Scalars['Int']['input']>;
   baseUrl?: InputMaybe<Scalars['String']['input']>;
   destination?: InputMaybe<Scalars['String']['input']>;
-  environmentVariables?: InputMaybe<Array<InputMaybe<TsStaticSiteEnvironmentVariablesInput>>>;
+  environmentVariables?: InputMaybe<
+    Array<InputMaybe<TsStaticSiteEnvironmentVariablesInput>>
+  >;
   idKey?: InputMaybe<Scalars['String']['input']>;
   privateAcl?: InputMaybe<Scalars['Boolean']['input']>;
   provider?: InputMaybe<Scalars['String']['input']>;
@@ -2075,212 +2020,348 @@ export type Upload = {
   uploadUrl?: Maybe<Scalars['ID']['output']>;
 };
 
-export type GetCategoryListQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetCategoryListQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type GetCategoryListQuery = { __typename?: 'Query', getCategoryList?: { __typename?: 'CategoryPaginatedList', total: number, items: Array<{ __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string, Image?: { __typename?: 'Asset', path: string, title?: string | null } | null }> } | null };
+export type GetCategoryListQuery = {
+  __typename?: 'Query';
+  getCategoryList?: {
+    __typename?: 'CategoryPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Category';
+      _id?: string | null;
+      description?: string | null;
+      slug: string;
+      title: string;
+      Image?: {
+        __typename?: 'Asset';
+        path: string;
+        title?: string | null;
+      } | null;
+    }>;
+  } | null;
+};
 
 export type GetCategoryBySlugQueryVariables = Exact<{
   where?: InputMaybe<TsWhereCategoryInput>;
 }>;
 
-
-export type GetCategoryBySlugQuery = { __typename?: 'Query', getCategoryList?: { __typename?: 'CategoryPaginatedList', total: number, items: Array<{ __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string, Image?: { __typename?: 'Asset', _id?: string | null, path: string, title?: string | null } | null }> } | null };
+export type GetCategoryBySlugQuery = {
+  __typename?: 'Query';
+  getCategoryList?: {
+    __typename?: 'CategoryPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Category';
+      _id?: string | null;
+      description?: string | null;
+      slug: string;
+      title: string;
+      Image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        path: string;
+        title?: string | null;
+      } | null;
+    }>;
+  } | null;
+};
 
 export type GetAllProductsFromCategoryQueryVariables = Exact<{
   where?: InputMaybe<TsWhereProductInput>;
 }>;
 
-
-export type GetAllProductsFromCategoryQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, name: string, price: number, salePrice?: number | null, slug: string, soldOut?: boolean | null, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string, Image?: { __typename?: 'Asset', path: string } | null } | null, image?: { __typename?: 'Asset', _id?: string | null, caption?: any | null, credit?: any | null, description?: string | null, filename: string, mimeType?: string | null, path: string, sourceUrl?: string | null, title?: string | null, uploadStatus?: string | null } | null }> } | null };
+export type GetAllProductsFromCategoryQuery = {
+  __typename?: 'Query';
+  getProductList?: {
+    __typename?: 'ProductPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Product';
+      _id?: string | null;
+      description?: string | null;
+      name: string;
+      price: number;
+      salePrice?: number | null;
+      slug: string;
+      soldOut?: boolean | null;
+      category?: {
+        __typename?: 'Category';
+        _id?: string | null;
+        description?: string | null;
+        slug: string;
+        title: string;
+        Image?: { __typename?: 'Asset'; path: string } | null;
+      } | null;
+      image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        caption?: any | null;
+        credit?: any | null;
+        description?: string | null;
+        filename: string;
+        mimeType?: string | null;
+        path: string;
+        sourceUrl?: string | null;
+        title?: string | null;
+        uploadStatus?: string | null;
+      } | null;
+    }>;
+  } | null;
+};
 
 export type GetProductListQueryVariables = Exact<{
   size?: InputMaybe<Scalars['Int']['input']>;
   from?: InputMaybe<Scalars['Int']['input']>;
 }>;
 
-
-export type GetProductListQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, slug: string, name: string, price: number, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string } | null, image?: { __typename?: 'Asset', _id?: string | null, path: string } | null }> } | null };
+export type GetProductListQuery = {
+  __typename?: 'Query';
+  getProductList?: {
+    __typename?: 'ProductPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Product';
+      _id?: string | null;
+      description?: string | null;
+      slug: string;
+      name: string;
+      price: number;
+      category?: {
+        __typename?: 'Category';
+        _id?: string | null;
+        description?: string | null;
+        slug: string;
+        title: string;
+      } | null;
+      image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        path: string;
+      } | null;
+    }>;
+  } | null;
+};
 
 export type GetProductListBySlugQueryVariables = Exact<{
   where?: InputMaybe<TsWhereProductInput>;
 }>;
 
-
-export type GetProductListBySlugQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, slug: string, name: string, price: number, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string } | null, image?: { __typename?: 'Asset', _id?: string | null, path: string } | null }> } | null };
+export type GetProductListBySlugQuery = {
+  __typename?: 'Query';
+  getProductList?: {
+    __typename?: 'ProductPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Product';
+      _id?: string | null;
+      description?: string | null;
+      slug: string;
+      name: string;
+      price: number;
+      category?: {
+        __typename?: 'Category';
+        _id?: string | null;
+        description?: string | null;
+        slug: string;
+        title: string;
+      } | null;
+      image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        path: string;
+      } | null;
+    }>;
+  } | null;
+};
 
 export const GetCategoryListDocument = gql`
-    query getCategoryList {
-  getCategoryList {
-    items {
-      Image {
-        path
-        title
-      }
-      _id
-      description
-      slug
-      title
-    }
-    total
-  }
-}
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetCategoryListGQL extends Apollo.Query<GetCategoryListQuery, GetCategoryListQueryVariables> {
-    document = GetCategoryListDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }
-export const GetCategoryBySlugDocument = gql`
-    query getCategoryBySlug($where: TSWhereCategoryInput) {
-  getCategoryList(where: $where) {
-    items {
-      Image {
-        _id
-        path
-        title
-      }
-      _id
-      description
-      slug
-      title
-    }
-    total
-  }
-}
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetCategoryBySlugGQL extends Apollo.Query<GetCategoryBySlugQuery, GetCategoryBySlugQueryVariables> {
-    document = GetCategoryBySlugDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }
-export const GetAllProductsFromCategoryDocument = gql`
-    query getAllProductsFromCategory($where: TSWhereProductInput) {
-  getProductList(where: $where) {
-    items {
-      _id
-      category {
-        _id
-        description
-        slug
-        title
+  query getCategoryList {
+    getCategoryList {
+      items {
         Image {
           path
+          title
         }
-      }
-      description
-      image {
         _id
-        caption
-        credit
         description
-        filename
-        mimeType
-        path
-        sourceUrl
+        slug
         title
-        uploadStatus
       }
-      name
-      price
-      salePrice
-      slug
-      soldOut
+      total
     }
-    total
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetCategoryListGQL extends Apollo.Query<
+  GetCategoryListQuery,
+  GetCategoryListQueryVariables
+> {
+  document = GetCategoryListDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
   }
 }
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetAllProductsFromCategoryGQL extends Apollo.Query<GetAllProductsFromCategoryQuery, GetAllProductsFromCategoryQueryVariables> {
-    document = GetAllProductsFromCategoryDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
+export const GetCategoryBySlugDocument = gql`
+  query getCategoryBySlug($where: TSWhereCategoryInput) {
+    getCategoryList(where: $where) {
+      items {
+        Image {
+          _id
+          path
+          title
+        }
+        _id
+        description
+        slug
+        title
+      }
+      total
     }
   }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetCategoryBySlugGQL extends Apollo.Query<
+  GetCategoryBySlugQuery,
+  GetCategoryBySlugQueryVariables
+> {
+  document = GetCategoryBySlugDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
+export const GetAllProductsFromCategoryDocument = gql`
+  query getAllProductsFromCategory($where: TSWhereProductInput) {
+    getProductList(where: $where) {
+      items {
+        _id
+        category {
+          _id
+          description
+          slug
+          title
+          Image {
+            path
+          }
+        }
+        description
+        image {
+          _id
+          caption
+          credit
+          description
+          filename
+          mimeType
+          path
+          sourceUrl
+          title
+          uploadStatus
+        }
+        name
+        price
+        salePrice
+        slug
+        soldOut
+      }
+      total
+    }
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetAllProductsFromCategoryGQL extends Apollo.Query<
+  GetAllProductsFromCategoryQuery,
+  GetAllProductsFromCategoryQueryVariables
+> {
+  document = GetAllProductsFromCategoryDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
 export const GetProductListDocument = gql`
-    query getProductList($size: Int, $from: Int) {
-  getProductList(size: $size, from: $from) {
-    items {
-      _id
-      category {
+  query getProductList($size: Int, $from: Int) {
+    getProductList(size: $size, from: $from) {
+      items {
         _id
+        category {
+          _id
+          description
+          slug
+          title
+        }
         description
+        image {
+          _id
+          path
+        }
         slug
-        title
+        name
+        price
       }
-      description
-      image {
-        _id
-        path
-      }
-      slug
-      name
-      price
+      total
     }
-    total
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetProductListGQL extends Apollo.Query<
+  GetProductListQuery,
+  GetProductListQueryVariables
+> {
+  document = GetProductListDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
   }
 }
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetProductListGQL extends Apollo.Query<GetProductListQuery, GetProductListQueryVariables> {
-    document = GetProductListDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }
 export const GetProductListBySlugDocument = gql`
-    query getProductListBySlug($where: TSWhereProductInput) {
-  getProductList(where: $where) {
-    items {
-      _id
-      category {
+  query getProductListBySlug($where: TSWhereProductInput) {
+    getProductList(where: $where) {
+      items {
         _id
+        category {
+          _id
+          description
+          slug
+          title
+        }
         description
+        image {
+          _id
+          path
+        }
         slug
-        title
+        name
+        price
       }
-      description
-      image {
-        _id
-        path
-      }
-      slug
-      name
-      price
+      total
     }
-    total
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetProductListBySlugGQL extends Apollo.Query<
+  GetProductListBySlugQuery,
+  GetProductListBySlugQueryVariables
+> {
+  document = GetProductListBySlugDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
   }
 }
-    `;
-
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class GetProductListBySlugGQL extends Apollo.Query<GetProductListBySlugQuery, GetProductListBySlugQueryVariables> {
-    document = GetProductListBySlugDocument;
-    
-    constructor(apollo: Apollo.Apollo) {
-      super(apollo);
-    }
-  }

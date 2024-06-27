@@ -1,30 +1,30 @@
 @if (productList$ | async; as productList) {
-<h1>Seeds and Plants</h1>
+  <h1>Seeds and Plants</h1>
 
-<ion-grid>
-  <ion-row>
-    @for(product of productList.items; track product._id) {
-    <ion-col size-xs="6" size-md="3" size-lg="2">
-      <ion-card [routerLink]="['/product/', product.slug]">
-        <img
-          [alt]="product.name"
-          *ngIf="product.image"
-          [src]="product.image.path | assetImageUrl"
-        />
-        <ion-card-header>
-          <ion-card-title>{{ product.name }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-badge color="primary">{{ product.price }} €</ion-badge>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    }
-  </ion-row>
-</ion-grid>
-<ion-infinite-scroll threshold="100px" (ionInfinite)="onIonInfinite($event)">
-  <ion-infinite-scroll-content></ion-infinite-scroll-content>
-</ion-infinite-scroll>
+  <ion-grid>
+    <ion-row>
+      @for (product of productList.items; track product._id) {
+        <ion-col size-xs="6" size-md="3" size-lg="2">
+          <ion-card [routerLink]="['/product/', product.slug]">
+            <img
+              [alt]="product.name"
+              *ngIf="product.image"
+              [src]="product.image.path | assetImageUrl"
+            />
+            <ion-card-header>
+              <ion-card-title>{{ product.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-badge color="primary">{{ product.price }} €</ion-badge>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 } @else {
-<app-skeleton-loading [items]="13"></app-skeleton-loading>
+  <app-skeleton-loading [items]="13"></app-skeleton-loading>
 }

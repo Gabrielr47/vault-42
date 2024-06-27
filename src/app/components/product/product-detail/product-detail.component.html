@@ -1,13 +1,27 @@
 @if (product$ | async; as product) {
-
-<section>
-  <ion-img
-    [alt]="product.items[0].name"
-    *ngIf="product.items[0].image?.path"
-    [src]="product.items[0].image?.path ?? '' | assetImageUrl"
-  />
-  <h1>{{ product.items[0].name }}</h1>
-  <h4>{{ product.items[0].description }}</h4>
-</section>
-
+  <section class="product-card">
+    <ion-img
+      [alt]="product.items[0].name"
+      *ngIf="product.items[0].image?.path"
+      [src]="product.items[0].image?.path ?? '' | assetImageUrl"
+    />
+    <section class="product-card-title">
+      <h1>{{ product.items[0].name }}</h1>
+      <ion-badge color="primary">{{ product.items[0].price }} €</ion-badge>
+    </section>
+    <h4 class="product-card-description">{{ product.items[0].description }}</h4>
+    @if (countdown$ | async; as countdown) {
+      <p>Order now and get delivered by tomorrow!</p>
+      <p>
+        Time left: {{ countdown.hours }}h {{ countdown.minutes }}m
+        {{ countdown.seconds }}s
+      </p>
+    }
+    <ion-button color="primary" id="open-toast"> Add to Cart </ion-button>
+    <ion-toast
+      trigger="open-toast"
+      [message]="product.items[0].name + ' added to cart'"
+      [duration]="5000"
+    ></ion-toast>
+  </section>
 }

@@ -32,7 +32,7 @@ export class ProductListComponent implements OnInit {
       switchMap(
         (from) =>
           this.productService.getProductList(this.productSize, from)
-            .valueChanges
+            .valueChanges,
       ),
       debounceTime(500),
       tap(() => {
@@ -45,7 +45,7 @@ export class ProductListComponent implements OnInit {
       scan((acc, value) => ({
         items: [...(acc?.items ?? []), ...(value?.items ?? [])],
         total: value?.total ?? 0,
-      }))
+      })),
     );
   }
 

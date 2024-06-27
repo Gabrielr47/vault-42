@@ -7,7 +7,7 @@ import { GetProductListBySlugGQL, GetProductListGQL } from 'src/types';
 export class ProductService {
   constructor(
     private getProductListGQL: GetProductListGQL,
-    private getProductListBySlugGQL: GetProductListBySlugGQL
+    private getProductListBySlugGQL: GetProductListBySlugGQL,
   ) {}
 
   getProductList(size: number, from: number) {

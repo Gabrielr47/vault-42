@@ -1,23 +1,25 @@
 @if (categoryList$ | async; as categoryList) {
-<h1 *ngIf="isResultsTextVisible()">{{ categoryList.total }} Categories</h1>
-<ion-grid>
-  <ion-row>
-    @for(category of categoryList.items; track category._id) {
-    <ion-col size-xs="6" size-md="3" size-lg="2">
-      <ion-card [routerLink]="['/category/', category.slug]">
-        <img
-          [alt]="category.title"
-          *ngIf="category.Image"
-          [src]="category.Image.path | assetImageUrl"
-        />
-        <ion-card-header>
-          <ion-card-title>{{ category.title }}</ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-col>
-    }
-  </ion-row>
-</ion-grid>
+  <h1 *ngIf="isResultsTextVisible()">
+    Browse by Category: <b>{{ categoryList.total }}</b> Results Found
+  </h1>
+  <ion-grid>
+    <ion-row>
+      @for (category of categoryList.items; track category._id) {
+        <ion-col size-xs="6" size-md="3" size-lg="2">
+          <ion-card [routerLink]="['/category/', category.slug]">
+            <img
+              [alt]="category.title"
+              *ngIf="category.Image"
+              [src]="category.Image.path | assetImageUrl"
+            />
+            <ion-card-header>
+              <ion-card-title>{{ category.title }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
 } @else {
-<app-skeleton-loading [items]="13"></app-skeleton-loading>
+  <app-skeleton-loading [items]="13"></app-skeleton-loading>
 }

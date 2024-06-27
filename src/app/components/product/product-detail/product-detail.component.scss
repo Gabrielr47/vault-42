@@ -1,3 +1,22 @@
-ion-img {
-  width: 300px;
+.product-card {
+  max-width: 500px;
+  ion-img {
+    width: 300px;
+  }
+
+  &-title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  &-description {
+    max-width: fit-content;
+  }
+
+  &-delivery-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
 }
