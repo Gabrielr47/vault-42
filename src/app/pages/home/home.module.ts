@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { SearchComponent } from '@app/components/search/search.component';
+import { CategoryListComponent } from '@app/components/category/category-list/category-list.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { SearchComponent } from '@app/components/search/search.component';
     IonicModule,
     HomePageRoutingModule,
     SearchComponent,
+    CategoryListComponent,
   ],
   declarations: [HomePage],
 })

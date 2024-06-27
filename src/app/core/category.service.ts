@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { GetCategoryBySlugGQL, GetCategoryListGQL } from 'src/types';
+import {
+  GetAllProductsFromCategoryGQL,
+  GetCategoryBySlugGQL,
+  GetCategoryListGQL,
+} from 'src/types';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +11,8 @@ import { GetCategoryBySlugGQL, GetCategoryListGQL } from 'src/types';
 export class CategoryService {
   constructor(
     private getCategoryListGQL: GetCategoryListGQL,
-    private getCategoryBySlugGQL: GetCategoryBySlugGQL
+    private getCategoryBySlugGQL: GetCategoryBySlugGQL,
+    private getAllProductsFromCategoryGQL: GetAllProductsFromCategoryGQL
   ) {}
 
   getCategoryList() {
@@ -19,6 +24,18 @@ export class CategoryService {
       where: {
         slug: {
           eq: slug,
+        },
+      },
+    });
+  }
+
+  getAllProductsFromCategory(slug: string) {
+    return this.getAllProductsFromCategoryGQL.watch({
+      where: {
+        category: {
+          slug: {
+            eq: slug,
+          },
         },
       },
     });

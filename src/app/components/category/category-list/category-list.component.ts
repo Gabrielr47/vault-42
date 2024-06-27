@@ -8,13 +8,25 @@ import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 import { CategoryService } from '@app/core/category.service';
 import { Observable, map } from 'rxjs';
 import { GetCategoryListQuery } from '@app/core/graphql/category.graphql.generated';
+import { IonicModule } from '@ionic/angular';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
 
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [AssetImageUrlPipe],
+  standalone: true,
+  imports: [
+    IonicModule,
+    AssetImageUrlPipe,
+    AsyncPipe,
+    CommonModule,
+    RouterModule,
+    SkeletonLoadingComponent,
+  ],
 })
 export class CategoryListComponent implements OnInit {
   categoryList$:

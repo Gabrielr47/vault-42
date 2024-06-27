@@ -2087,6 +2087,13 @@ export type GetCategoryBySlugQueryVariables = Exact<{
 
 export type GetCategoryBySlugQuery = { __typename?: 'Query', getCategoryList?: { __typename?: 'CategoryPaginatedList', total: number, items: Array<{ __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string, Image?: { __typename?: 'Asset', _id?: string | null, path: string, title?: string | null } | null }> } | null };
 
+export type GetAllProductsFromCategoryQueryVariables = Exact<{
+  where?: InputMaybe<TsWhereProductInput>;
+}>;
+
+
+export type GetAllProductsFromCategoryQuery = { __typename?: 'Query', getProductList?: { __typename?: 'ProductPaginatedList', total: number, items: Array<{ __typename?: 'Product', _id?: string | null, description?: string | null, name: string, price: number, salePrice?: number | null, slug: string, soldOut?: boolean | null, category?: { __typename?: 'Category', _id?: string | null, description?: string | null, slug: string, title: string, Image?: { __typename?: 'Asset', path: string } | null } | null, image?: { __typename?: 'Asset', _id?: string | null, caption?: any | null, credit?: any | null, description?: string | null, filename: string, mimeType?: string | null, path: string, sourceUrl?: string | null, title?: string | null, uploadStatus?: string | null } | null }> } | null };
+
 export type GetProductListQueryVariables = Exact<{
   size?: InputMaybe<Scalars['Int']['input']>;
   from?: InputMaybe<Scalars['Int']['input']>;
@@ -2154,6 +2161,54 @@ export const GetCategoryBySlugDocument = gql`
   })
   export class GetCategoryBySlugGQL extends Apollo.Query<GetCategoryBySlugQuery, GetCategoryBySlugQueryVariables> {
     document = GetCategoryBySlugDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const GetAllProductsFromCategoryDocument = gql`
+    query getAllProductsFromCategory($where: TSWhereProductInput) {
+  getProductList(where: $where) {
+    items {
+      _id
+      category {
+        _id
+        description
+        slug
+        title
+        Image {
+          path
+        }
+      }
+      description
+      image {
+        _id
+        caption
+        credit
+        description
+        filename
+        mimeType
+        path
+        sourceUrl
+        title
+        uploadStatus
+      }
+      name
+      price
+      salePrice
+      slug
+      soldOut
+    }
+    total
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class GetAllProductsFromCategoryGQL extends Apollo.Query<GetAllProductsFromCategoryQuery, GetAllProductsFromCategoryQueryVariables> {
+    document = GetAllProductsFromCategoryDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

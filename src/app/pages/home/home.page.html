@@ -8,5 +8,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <h1>Welcome to Vault 42</h1>
+  <div class="hero-section">
+    <ion-img src="../../../assets/hero-section.jpg" alt="Vault 42"></ion-img>
+    <div class="hero-text">
+      <h1>Welcome to Vault 42</h1>
+      <p>Preserving the Future, One Seed at a Time</p>
+      <ion-button color="primary" [routerLink]="['/products']">
+        Shop Now
+      </ion-button>
+    </div>
+  </div>
+
+  <app-category-list [isResultsTextVisible]="true" />
 </ion-content>

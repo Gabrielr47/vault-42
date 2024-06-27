@@ -10,6 +10,7 @@ import { CategoryPage } from './category.page';
 import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 import { SearchComponent } from '@app/components/search/search.component';
 import { CategoryDetailComponent } from '@app/components/category/category-detail/category-detail.component';
+import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { CategoryDetailComponent } from '@app/components/category/category-detai
     CategoryPageRoutingModule,
     AssetImageUrlPipe,
     SearchComponent,
+    SkeletonLoadingComponent,
   ],
   declarations: [CategoryPage, CategoryDetailComponent],
 })

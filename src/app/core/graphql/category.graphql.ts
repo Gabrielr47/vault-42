@@ -36,3 +36,41 @@ export const GET_CATEGORY_BY_SLUG = gql`
     }
   }
 `;
+
+export const GET_ALL_PRODUCTS_FROM_CATEGORY = gql`
+  query getAllProductsFromCategory($where: TSWhereProductInput) {
+    getProductList(where: $where) {
+      items {
+        _id
+        category {
+          _id
+          description
+          slug
+          title
+          Image {
+            path
+          }
+        }
+        description
+        image {
+          _id
+          caption
+          credit
+          description
+          filename
+          mimeType
+          path
+          sourceUrl
+          title
+          uploadStatus
+        }
+        name
+        price
+        salePrice
+        slug
+        soldOut
+      }
+      total
+    }
+  }
+`;
