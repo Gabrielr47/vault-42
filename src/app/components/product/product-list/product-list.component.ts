@@ -33,9 +33,9 @@ import {
 export class ProductListComponent implements OnInit {
   private readonly productSize = 20;
   private productFrom$ = new BehaviorSubject<number>(this.productSize);
+  private currentInfiniteEvent!: InfiniteScrollCustomEvent | null;
 
   productList$: Observable<GetProductListQuery['getProductList']> | undefined;
-  currentInfiniteEvent!: InfiniteScrollCustomEvent | null;
 
   constructor(private readonly productService: ProductService) {}
 

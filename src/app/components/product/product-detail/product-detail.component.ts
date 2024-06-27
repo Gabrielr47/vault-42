@@ -11,6 +11,12 @@ import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
 import { IonicModule, ToastController } from '@ionic/angular';
 import { Observable, interval, map, startWith } from 'rxjs';
 
+export interface CountDown {
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -21,17 +27,9 @@ import { Observable, interval, map, startWith } from 'rxjs';
 })
 export class ProductDetailComponent implements OnInit {
   slug = input('');
+
   product$: Observable<GetProductListBySlugQuery['getProductList']> | undefined;
-  countdown$ = interval(1000).pipe(
-    startWith(0),
-    map(() => {
-      const timeLeft = this.getTimeUntilMidnight();
-      const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
-      const seconds = Math.floor((timeLeft / 1000) % 60);
-      return { hours, minutes, seconds };
-    }),
-  );
+  countdown$: Observable<CountDown> | undefined;
 
   constructor(
     private productService: ProductService,
@@ -42,6 +40,17 @@ export class ProductDetailComponent implements OnInit {
     this.product$ = this.productService
       .getProductListBySlug(this.slug())
       .valueChanges.pipe(map((result) => result.data.getProductList));
+
+    this.countdown$ = interval(1000).pipe(
+      startWith(0),
+      map(() => {
+        const timeLeft = this.getTimeUntilMidnight();
+        const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeLeft / 1000) % 60);
+        return { hours, minutes, seconds };
+      }),
+    );
   }
 
   getTimeUntilMidnight() {

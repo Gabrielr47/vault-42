@@ -36,7 +36,7 @@ import { FormsModule } from '@angular/forms';
   ],
 })
 export class SearchComponent implements OnInit {
-  placeholder = input('Search for seeds or plants');
+  placeholder = input('Search for seeds and plants');
   searchQuery$ = new BehaviorSubject<string>('');
   searchTerm = '';
   minSearchLength = 2;
