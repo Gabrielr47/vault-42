@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  GetProductListBySlugGQL,
-  GetProductListGQL,
-} from '@app/graphql.generated';
+import { GetProductListBySlugGQL, GetProductListGQL } from 'src/types';
 
 @Injectable({
   providedIn: 'root',

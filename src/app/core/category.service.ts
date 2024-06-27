@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  GetCategoryBySlugGQL,
-  GetCategoryListGQL,
-} from '@app/graphql.generated';
+import { GetCategoryBySlugGQL, GetCategoryListGQL } from 'src/types';
 
 @Injectable({
   providedIn: 'root',

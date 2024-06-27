@@ -1,6 +1,6 @@
 import { Component, OnInit, input } from '@angular/core';
-import { GetProductListBySlugQuery } from '@app/graphql.generated';
-import { ProductService } from '@app/services/product.service';
+import { GetProductListBySlugQuery } from '@app/core/graphql/product.graphql.generated';
+import { ProductService } from '@app/core/product.service';
 import { Observable, map } from 'rxjs';
 
 @Component({

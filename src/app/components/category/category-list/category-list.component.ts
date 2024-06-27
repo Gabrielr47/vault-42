@@ -4,10 +4,10 @@ import {
   OnInit,
   input,
 } from '@angular/core';
-import { GetCategoryListQuery } from '@app/graphql.generated';
 import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
-import { CategoryService } from '@app/services/category.service';
+import { CategoryService } from '@app/core/category.service';
 import { Observable, map } from 'rxjs';
+import { GetCategoryListQuery } from '@app/core/graphql/category.graphql.generated';
 
 @Component({
   selector: 'app-category-list',

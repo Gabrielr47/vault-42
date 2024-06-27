@@ -1,15 +1,13 @@
 @if (product$ | async; as product) {
-<ion-list>
-  <ion-item lines="none">
-    <ion-avatar aria-hidden="true" slot="start">
-      <img
-        [alt]="product.items[0].name"
-        *ngIf="product.items[0].image?.path"
-        [src]="product.items[0].image?.path ?? '' | assetImageUrl"
-      />
-    </ion-avatar>
-    <ion-label>{{ product.items[0].name }}</ion-label>
-    <ion-label>{{ product.items[0].description }}</ion-label>
-  </ion-item>
-</ion-list>
+
+<section>
+  <ion-img
+    [alt]="product.items[0].name"
+    *ngIf="product.items[0].image?.path"
+    [src]="product.items[0].image?.path ?? '' | assetImageUrl"
+  />
+  <h1>{{ product.items[0].name }}</h1>
+  <h4>{{ product.items[0].description }}</h4>
+</section>
+
 }

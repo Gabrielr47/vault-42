@@ -24,6 +24,7 @@ export const GET_PRODUCT_LIST = gql`
     }
   }
 `;
+
 export const GET_PRODUCT_LIST_BY_SLUG = gql`
   query getProductListBySlug($where: TSWhereProductInput) {
     getProductList(where: $where) {
@@ -43,43 +44,6 @@ export const GET_PRODUCT_LIST_BY_SLUG = gql`
         slug
         name
         price
-      }
-      total
-    }
-  }
-`;
-
-export const GET_CATEGORY_LIST = gql`
-  query getCategoryList {
-    getCategoryList {
-      items {
-        Image {
-          path
-          title
-        }
-        _id
-        description
-        slug
-        title
-      }
-      total
-    }
-  }
-`;
-
-export const GET_CATEGORY_BY_SLUG = gql`
-  query getCategoryBySlug($where: TSWhereCategoryInput) {
-    getCategoryList(where: $where) {
-      items {
-        Image {
-          _id
-          path
-          title
-        }
-        _id
-        description
-        slug
-        title
       }
       total
     }

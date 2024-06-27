@@ -8,12 +8,21 @@ const config: CodegenConfig = {
   },
   documents: './src/**/*.ts',
   generates: {
-    './src/app/graphql.generated.ts': {
+    'src/types.ts': {
       plugins: [
         'typescript',
         'typescript-operations',
         'typescript-apollo-angular',
       ],
+    },
+    'src/': {
+      preset: 'near-operation-file',
+      presetConfig: {
+        extension: '.generated.ts',
+        baseTypesPath: 'types.ts',
+      },
+      plugins: ['typescript-operations'],
+      config: { withHooks: true },
     },
   },
 } as CodegenConfig;

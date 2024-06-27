@@ -1,6 +1,6 @@
 import { Component, OnInit, input } from '@angular/core';
-import { GetCategoryBySlugQuery } from '@app/graphql.generated';
-import { CategoryService } from '@app/services/category.service';
+import { GetCategoryBySlugQuery } from '@app/core/graphql/category.graphql.generated';
+import { CategoryService } from '@app/core/category.service';
 import { Observable, map } from 'rxjs';
 
 @Component({

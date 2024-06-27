@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { GetProductListQuery } from '@app/graphql.generated';
-import { ProductService } from '@app/services/product.service';
+import { GetProductListQuery } from '@app/core/graphql/product.graphql.generated';
+import { ProductService } from '@app/core/product.service';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import {
   BehaviorSubject,
@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   private productFrom$ = new BehaviorSubject<number>(this.productSize);
 
   productList$: Observable<GetProductListQuery['getProductList']> | undefined;
-  #currentInfiniteEvent!: InfiniteScrollCustomEvent | null;
+  currentInfiniteEvent!: InfiniteScrollCustomEvent | null;
 
   constructor(private readonly productService: ProductService) {}
 
@@ -36,9 +36,9 @@ export class ProductListComponent implements OnInit {
       ),
       debounceTime(500),
       tap(() => {
-        if (this.#currentInfiniteEvent) {
-          this.#currentInfiniteEvent.target.complete();
-          this.#currentInfiniteEvent = null;
+        if (this.currentInfiniteEvent) {
+          this.currentInfiniteEvent.target.complete();
+          this.currentInfiniteEvent = null;
         }
       }),
       map((result) => result?.data?.getProductList),
@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onIonInfinite(event: InfiniteScrollCustomEvent) {
-    this.#currentInfiniteEvent = event as InfiniteScrollCustomEvent;
+    this.currentInfiniteEvent = event as InfiniteScrollCustomEvent;
     this.productFrom$.next(this.productFrom$.value + this.productSize);
   }
 }

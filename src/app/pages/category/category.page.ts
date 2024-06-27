@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CategoryService } from '@app/services/category.service';
-import { Observable, map } from 'rxjs';
-import { CategoriesPage } from '../categories/categories.page';
 
 @Component({
   selector: 'app-category',
