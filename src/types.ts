@@ -2175,6 +2175,31 @@ export type GetProductListBySlugQuery = {
   } | null;
 };
 
+export type GetProductsQueryQueryVariables = Exact<{
+  query: Scalars['String']['input'];
+}>;
+
+export type GetProductsQueryQuery = {
+  __typename?: 'Query';
+  getProductList?: {
+    __typename?: 'ProductPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Product';
+      _id?: string | null;
+      name: string;
+      price: number;
+      slug: string;
+      image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        path: string;
+        title?: string | null;
+      } | null;
+    }>;
+  } | null;
+};
+
 export const GetCategoryListDocument = gql`
   query getCategoryList {
     getCategoryList {
@@ -2360,6 +2385,38 @@ export class GetProductListBySlugGQL extends Apollo.Query<
   GetProductListBySlugQueryVariables
 > {
   document = GetProductListBySlugDocument;
+
+  constructor(apollo: Apollo.Apollo) {
+    super(apollo);
+  }
+}
+export const GetProductsQueryDocument = gql`
+  query getProductsQuery($query: String!) {
+    getProductList(terms: $query) {
+      items {
+        _id
+        image {
+          _id
+          path
+          title
+        }
+        name
+        price
+        slug
+      }
+      total
+    }
+  }
+`;
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GetProductsQueryGQL extends Apollo.Query<
+  GetProductsQueryQuery,
+  GetProductsQueryQueryVariables
+> {
+  document = GetProductsQueryDocument;
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo);

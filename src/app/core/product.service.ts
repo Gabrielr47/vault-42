@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { GetProductListBySlugGQL, GetProductListGQL } from 'src/types';
+import {
+  GetProductListBySlugGQL,
+  GetProductListGQL,
+  GetProductsQueryGQL,
+} from 'src/types';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +12,7 @@ export class ProductService {
   constructor(
     private getProductListGQL: GetProductListGQL,
     private getProductListBySlugGQL: GetProductListBySlugGQL,
+    private getProductsQueryGQL: GetProductsQueryGQL,
   ) {}
 
   getProductList(size: number, from: number) {
@@ -24,6 +29,12 @@ export class ProductService {
           eq: slug,
         },
       },
+    });
+  }
+
+  getProductsQuery(query: string) {
+    return this.getProductsQueryGQL.watch({
+      query,
     });
   }
 }

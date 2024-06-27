@@ -1,1 +1,31 @@
-<ion-searchbar [placeholder]="placeholder()"></ion-searchbar>
+<ion-searchbar
+  [placeholder]="placeholder()"
+  animated="true"
+  show-clear-button="focus"
+  (ionInput)="onSearchInput($event)"
+  (ionClear)="onSearchClear()"
+  [(ngModel)]="searchTerm"
+></ion-searchbar>
+
+@if (products$ | async; as products) {
+  <p class="search-results-title">
+    Search Results: <b> {{ products.total }} </b> Products Found
+  </p>
+  <ion-list>
+    @for (product of products.items; track product._id) {
+      <ion-item
+        [routerLink]="['/product', product.slug]"
+        (click)="onSearchClear()"
+      >
+        @if (product.image?.path) {
+          <ion-avatar aria-hidden="true" slot="start">
+            <img [src]="product.image!.path | assetImageUrl" />
+          </ion-avatar>
+        }
+        <ion-label>
+          <h2>{{ product.name }}</h2>
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+}

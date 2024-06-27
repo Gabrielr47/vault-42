@@ -1,6 +1,7 @@
 import { Component, OnInit, input } from '@angular/core';
 import { GetProductListBySlugQuery } from '@app/core/graphql/product.graphql.generated';
 import { ProductService } from '@app/core/product.service';
+import { ToastController } from '@ionic/angular';
 import { Observable, interval, map, startWith } from 'rxjs';
 
 @Component({
@@ -11,7 +12,6 @@ import { Observable, interval, map, startWith } from 'rxjs';
 export class ProductDetailComponent implements OnInit {
   slug = input('');
   product$: Observable<GetProductListBySlugQuery['getProductList']> | undefined;
-
   countdown$ = interval(1000).pipe(
     startWith(0),
     map(() => {
@@ -23,7 +23,10 @@ export class ProductDetailComponent implements OnInit {
     }),
   );
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private toastController: ToastController,
+  ) {}
 
   ngOnInit() {
     this.product$ = this.productService
@@ -43,5 +46,14 @@ export class ProductDetailComponent implements OnInit {
       0,
     ) as Date;
     return midnight.getTime() - now.getTime();
+  }
+
+  onAddToCard(productName: string) {
+    this.toastController
+      .create({
+        message: `Added ${productName} to cart`,
+        duration: 2000,
+      })
+      .then((toast) => toast.present());
   }
 }

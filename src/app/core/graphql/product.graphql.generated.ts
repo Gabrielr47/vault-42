@@ -64,3 +64,28 @@ export type GetProductListBySlugQuery = {
     }>;
   } | null;
 };
+
+export type GetProductsQueryQueryVariables = Types.Exact<{
+  query: Types.Scalars['String']['input'];
+}>;
+
+export type GetProductsQueryQuery = {
+  __typename?: 'Query';
+  getProductList?: {
+    __typename?: 'ProductPaginatedList';
+    total: number;
+    items: Array<{
+      __typename?: 'Product';
+      _id?: string | null;
+      name: string;
+      price: number;
+      slug: string;
+      image?: {
+        __typename?: 'Asset';
+        _id?: string | null;
+        path: string;
+        title?: string | null;
+      } | null;
+    }>;
+  } | null;
+};

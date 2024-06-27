@@ -1,5 +1,5 @@
 @if (product$ | async; as product) {
-  <section class="product-card">
+  <section *ngIf="product.items[0]" class="product-card">
     <ion-img
       [alt]="product.items[0].name"
       *ngIf="product.items[0].image?.path"
@@ -17,11 +17,8 @@
         {{ countdown.seconds }}s
       </p>
     }
-    <ion-button color="primary" id="open-toast"> Add to Cart </ion-button>
-    <ion-toast
-      trigger="open-toast"
-      [message]="product.items[0].name + ' added to cart'"
-      [duration]="5000"
-    ></ion-toast>
+    <ion-button color="primary" (click)="onAddToCard(product.items[0].name)">
+      Add to Cart
+    </ion-button>
   </section>
 }
