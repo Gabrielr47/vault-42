@@ -1,26 +1,50 @@
- # Vault 42
+# Vault 42 - Seeds and Plants Shop
+
+Vault 42 is a dynamic and user-friendly seeds and plants shop application built with Ionic and Angular 18. This modern web application provides an extensive selection of seeds and plants, catering to gardening enthusiasts and professional horticulturists alike.
+
+![vault 42](https://raw.githubusercontent.com/Gabrielr47/vault-42/main/src/assets/hero-section.jpg)
+
+
+## Installation
 
 
 
-## Getting Started
+```bash
+npm install
+```
 
-To get started with this project, follow these simple steps:
+## How to run
 
- 
-1. **npm install** - Install the project dependencies.
-2. **npm start** - Start the project.
- 
- 
- 
- This project Contains GraphQL queries for retrieving product and category data.
- These queries are used with Apollo Angular to generate fully-typed Apollo GraphQL services.
- To generate the types and services, run the command: npm run generate
+```typescript
+npm start
+```
 
- Not typing or manually maintaining the data-types can lead to many issues:
- - Outdated typing (regarding the current Schema)
- - Typos
- - Partial typing of data (not all Schema’s fields have a corresponding type)
 
-For more information on generating types and services, refer to the following documentation:
-- [GraphQL Code Generator](https://the-guild.dev/graphql/codegen/docs/guides/angular)
-- [Generated files collocation](https://the-guild.dev/graphql/codegen/docs/advanced/generated-files-colocation)
+## Others scripts you might use
+
+```typescript
+// linting with prettier integration
+npm run lint
+
+// test with jasmine with karma test runner 
+npm run test
+
+// commit tool for following commit conventions
+// https://commitizen-tools.github.io/commitizen/
+npm run commit 
+
+// Graphql Types Generator based on schema:
+// https://the-guild.dev/graphql/codegen/docs/guides/angular
+npm run generate 
+```
+
+## Downloads & Preview
+
+[Website](https://bnqjuu18xg.appflowapp.com/home)
+
+[Android APK](https://drive.google.com/file/d/1XhoKTc0vFaTXR5W6xVngxXZkM9shtKrA/view?usp=sharing)
+
+
+
+If the links are offline, no problem! 
+Message me at gabrielr47@gmail.com, and I will provide you with a working link.
