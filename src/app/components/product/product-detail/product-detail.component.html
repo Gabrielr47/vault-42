@@ -5,6 +5,7 @@
         <ion-col size-xs="12">
           <section class="product-card ion-padding">
             <ion-img
+              class="product-card-image"
               [alt]="product.items[0].name"
               *ngIf="product.items[0].image?.path"
               [src]="product.items[0].image?.path ?? '' | assetImageUrl"
@@ -51,5 +52,34 @@
     ></app-hero-section>
   }
 } @else {
-  <ion-spinner></ion-spinner>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-xs="12">
+        <section class="product-card-skeleton ion-padding">
+          <section class="product-card-title">
+            <ion-skeleton-text
+              [animated]="true"
+              class="skeleton-title"
+            ></ion-skeleton-text>
+          </section>
+          <h1>
+            <ion-skeleton-text
+              [animated]="true"
+              class="skeleton-description"
+            ></ion-skeleton-text>
+          </h1>
+          <h4 class="product-card-description">
+            <ion-skeleton-text
+              [animated]="true"
+              class="skeleton-description"
+            ></ion-skeleton-text>
+            <ion-skeleton-text
+              [animated]="true"
+              class="skeleton-description"
+            ></ion-skeleton-text>
+          </h4>
+        </section>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 }

@@ -1,10 +1,10 @@
 .product-card {
   max-width: 500px;
-  ion-img {
+  &-image {
     width: 300px;
   }
 
-  ion-img::part(image) {
+  &-image::part(image) {
     border-radius: 10px;
   }
 
@@ -22,5 +22,18 @@
     display: flex;
     align-items: center;
     gap: 6px;
+  }
+}
+
+.skeleton {
+  &-title {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+  }
+
+  &-description {
+    width: 300px;
+    height: 40px;
   }
 }
