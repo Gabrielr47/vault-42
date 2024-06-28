@@ -6,8 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { GraphQLModule } from './graphql.module';
 import { provideHttpClient } from '@angular/common/http';
+import { GraphQLModule } from './core/graphql/graphql.module';
 
 @NgModule({
   declarations: [AppComponent],
