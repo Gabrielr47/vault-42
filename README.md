@@ -40,7 +40,7 @@ npm run generate
 
 ## Downloads & Preview
 
-[Website](https://bnqjuu18xg.appflowapp.com/home)
+You can find the website link in the About section of this repository.
 
 [Android APK](https://drive.google.com/file/d/1XhoKTc0vFaTXR5W6xVngxXZkM9shtKrA/view?usp=sharing)
 
