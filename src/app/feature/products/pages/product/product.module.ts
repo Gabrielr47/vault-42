@@ -8,7 +8,7 @@ import { ProductPageRoutingModule } from './product-routing.module';
 
 import { ProductPage } from './product.page';
 import { ProductDetailComponent } from '@app/feature/products/components/product-detail/product-detail.component';
-import { AssetImageUrlPipe } from '@app/shared/pipes/pipes/asset-image-url.pipe';
+import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { SearchComponent } from '@app/shared/components/search/search.component';
 
 @NgModule({

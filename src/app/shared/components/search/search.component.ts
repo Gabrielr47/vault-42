@@ -16,7 +16,7 @@ import {
 } from 'rxjs';
 import { GetProductListQuery } from '@app/core/graphql/product.graphql.generated';
 import { AsyncPipe } from '@angular/common';
-import { AssetImageUrlPipe } from '@app/shared/pipes/pipes/asset-image-url.pipe';
+import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';

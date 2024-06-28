@@ -9,7 +9,7 @@ import { ProductsPageRoutingModule } from './products-routing.module';
 import { ProductsPage } from './products.page';
 import { SearchComponent } from '@app/shared/components/search/search.component';
 import { ProductListComponent } from '@app/feature/products/components/product-list/product-list.component';
-import { AssetImageUrlPipe } from '@app/shared/pipes/pipes/asset-image-url.pipe';
+import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { SkeletonLoadingComponent } from '@app/shared/components/skeleton-loading/skeleton-loading.component';
 
 @NgModule({

@@ -4,7 +4,7 @@ import {
   OnInit,
   input,
 } from '@angular/core';
-import { AssetImageUrlPipe } from '@app/shared/pipes/pipes/asset-image-url.pipe';
+import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { CategoryService } from '@app/core/category.service';
 import { Observable, map } from 'rxjs';
 import { GetCategoryListQuery } from '@app/core/graphql/category.graphql.generated';

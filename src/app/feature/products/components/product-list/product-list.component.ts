@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SkeletonLoadingComponent } from '@app/shared/components/skeleton-loading/skeleton-loading.component';
 import { GetProductListQuery } from '@app/core/graphql/product.graphql.generated';
 import { ProductService } from '@app/core/product.service';
-import { AssetImageUrlPipe } from '@app/shared/pipes/pipes/asset-image-url.pipe';
+import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { InfiniteScrollCustomEvent, IonicModule } from '@ionic/angular';
 import {
   BehaviorSubject,

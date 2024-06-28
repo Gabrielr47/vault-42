@@ -10,7 +10,7 @@ import { CategoryDetailComponent } from '@app/feature/categories/components/cate
 import { HeroSectionComponent } from '@app/shared/components/hero-section/hero-section.component';
 import { GetProductListBySlugQuery } from '@app/core/graphql/product.graphql.generated';
 import { ProductService } from '@app/core/product.service';
-import { AssetImageUrlPipe } from '@app/shared/pipes/pipes/asset-image-url.pipe';
+import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { IonicModule, ToastController } from '@ionic/angular';
 import { Observable, interval, map, startWith } from 'rxjs';
 

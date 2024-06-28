@@ -7,7 +7,7 @@ import {
 import { GetAllProductsFromCategoryQuery } from '@app/core/graphql/category.graphql.generated';
 import { CategoryService } from '@app/core/category.service';
 import { Observable, map } from 'rxjs';
-import { AssetImageUrlPipe } from '@app/shared/pipes/pipes/asset-image-url.pipe';
+import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { SkeletonLoadingComponent } from '@app/shared/components/skeleton-loading/skeleton-loading.component';
