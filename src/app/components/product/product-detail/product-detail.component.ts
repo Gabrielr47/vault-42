@@ -6,6 +6,7 @@ import {
   input,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CategoryDetailComponent } from '@app/components/category/category-detail/category-detail.component';
 import { HeroSectionComponent } from '@app/components/hero-section/hero-section.component';
 import { GetProductListBySlugQuery } from '@app/core/graphql/product.graphql.generated';
 import { ProductService } from '@app/core/product.service';
@@ -31,6 +32,7 @@ export interface CountDown {
     CommonModule,
     RouterModule,
     HeroSectionComponent,
+    CategoryDetailComponent,
   ],
 })
 export class ProductDetailComponent implements OnInit {
@@ -78,7 +80,7 @@ export class ProductDetailComponent implements OnInit {
   onAddToCard(productName: string) {
     this.toastController
       .create({
-        message: `Added ${productName} to cart`,
+        message: `TODO: Add ${productName} to cart`,
         duration: 2000,
       })
       .then((toast) => toast.present());

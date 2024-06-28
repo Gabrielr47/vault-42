@@ -31,6 +31,10 @@ import { HeroSectionComponent } from '@app/components/hero-section/hero-section.
 })
 export class CategoryDetailComponent implements OnInit {
   slug = input('');
+  // it might happen that we want to exclude a product from the list
+  // one scenario is when we are on the product detail page and we want to show related products
+  excludeProductId = input('');
+
   allProductsFromCategory$:
     | Observable<GetAllProductsFromCategoryQuery['getProductList']>
     | undefined;
@@ -40,6 +44,19 @@ export class CategoryDetailComponent implements OnInit {
   ngOnInit() {
     this.allProductsFromCategory$ = this.categoryService
       .getAllProductsFromCategory(this.slug())
-      .valueChanges.pipe(map((result) => result.data.getProductList));
+      .valueChanges.pipe(
+        map((result) => {
+          const productList = { ...result.data.getProductList };
+
+          if (this.excludeProductId && productList?.items) {
+            productList.items = productList?.items.filter(
+              (product) => product._id !== this.excludeProductId(),
+            );
+            productList.total = productList.items.length;
+          }
+
+          return productList as GetAllProductsFromCategoryQuery['getProductList'];
+        }),
+      );
   }
 }

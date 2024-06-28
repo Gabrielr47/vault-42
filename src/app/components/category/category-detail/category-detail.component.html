@@ -9,24 +9,26 @@
       buttonLink="/products"
     />
   } @else {
-    <ion-list>
-      <ion-item lines="none">
-        <ion-avatar aria-hidden="true" slot="start">
-          <img
-            [alt]="categoryProducts.items[0].category?.title"
-            *ngIf="categoryProducts.items[0].category?.Image?.path"
-            [src]="
-              categoryProducts.items[0].category?.Image?.path ?? ''
-                | assetImageUrl
-            "
-          />
-        </ion-avatar>
-        <ion-label>
-          {{ categoryProducts.total }} Products from:
-          <b>{{ categoryProducts.items[0].category?.title }}</b>
-        </ion-label>
-      </ion-item>
-    </ion-list>
+    <section class="ion-padding">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-avatar aria-hidden="true" slot="start">
+            <img
+              [alt]="categoryProducts.items[0].category?.title"
+              *ngIf="categoryProducts.items[0].category?.Image?.path"
+              [src]="
+                categoryProducts.items[0].category?.Image?.path ?? ''
+                  | assetImageUrl
+              "
+            />
+          </ion-avatar>
+          <ion-label>
+            {{ categoryProducts.total }} Products from:
+            <b>{{ categoryProducts.items[0].category?.title }}</b>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </section>
   }
   <ion-row>
     @for (product of categoryProducts.items; track product._id) {

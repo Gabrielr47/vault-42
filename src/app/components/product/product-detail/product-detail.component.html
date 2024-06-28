@@ -1,29 +1,45 @@
 @if (product$ | async; as product) {
   @if (product.items.length >= 1) {
-    <section class="product-card ion-padding">
-      <ion-img
-        [alt]="product.items[0].name"
-        *ngIf="product.items[0].image?.path"
-        [src]="product.items[0].image?.path ?? '' | assetImageUrl"
-      />
-      <section class="product-card-title">
-        <h1>{{ product.items[0].name }}</h1>
-        <ion-badge color="primary">{{ product.items[0].price }} €</ion-badge>
-      </section>
-      <h4 class="product-card-description">
-        {{ product.items[0].description }}
-      </h4>
-      @if (countdown$ | async; as countdown) {
-        <p>Order now and get delivered by tomorrow!</p>
-        <p>
-          Time left: {{ countdown.hours }}h {{ countdown.minutes }}m
-          {{ countdown.seconds }}s
-        </p>
-      }
-      <ion-button color="primary" (click)="onAddToCard(product.items[0].name)">
-        Add to Cart
-      </ion-button>
-    </section>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-xs="12">
+          <section class="product-card ion-padding">
+            <ion-img
+              [alt]="product.items[0].name"
+              *ngIf="product.items[0].image?.path"
+              [src]="product.items[0].image?.path ?? '' | assetImageUrl"
+            />
+            <section class="product-card-title">
+              <h1>{{ product.items[0].name }}</h1>
+              <ion-badge color="primary"
+                >{{ product.items[0].price }} €</ion-badge
+              >
+            </section>
+            <h4 class="product-card-description">
+              {{ product.items[0].description }}
+            </h4>
+            @if (countdown$ | async; as countdown) {
+              <p>Order now and get delivered by tomorrow!</p>
+              <p>
+                Time left: {{ countdown.hours }}h {{ countdown.minutes }}m
+                {{ countdown.seconds }}s
+              </p>
+            }
+            <ion-button
+              color="primary"
+              (click)="onAddToCard(product.items[0].name)"
+            >
+              Add to Cart
+            </ion-button>
+          </section>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <app-category-detail
+      [slug]="product.items[0].category?.slug ?? ''"
+      [excludeProductId]="product.items[0]._id ?? ''"
+    />
   } @else {
     <app-hero-section
       imageName="hero-section-cannot-find-product"
