@@ -1,0 +1,13 @@
+<div class="hero-section">
+  <ion-img
+    [src]="'../../../assets/' + imageName + '.jpg'"
+    [alt]="imageAlt"
+  ></ion-img>
+  <div class="hero-text">
+    <h1>{{ title }}</h1>
+    <p>{{ subtitle }}</p>
+    <ion-button [routerLink]="buttonLink">
+      {{ buttonText }}
+    </ion-button>
+  </div>
+</div>

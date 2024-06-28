@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoryPage } from './category.page';
 
 import { IonicModule } from '@ionic/angular';
+import { SearchComponent } from '@app/components/search/search.component';
+import { CategoryDetailComponent } from '@app/components/category/category-detail/category-detail.component';
+import { ApolloTestingModule } from 'apollo-angular/testing';
 
 describe('CategoryPage', () => {
   let component: CategoryPage;
@@ -11,7 +14,12 @@ describe('CategoryPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CategoryPage],
-      imports: [IonicModule],
+      imports: [
+        IonicModule,
+        SearchComponent,
+        CategoryDetailComponent,
+        ApolloTestingModule,
+      ],
       providers: [
         {
           provide: ActivatedRoute,

@@ -4,34 +4,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.hero-section ion-img {
-  width: 100%;
-  height: 40vh;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 10px;
-}
-
-ion-img::part(image) {
-  border-radius: 10px;
-}
-
-.hero-text {
-  position: absolute;
-  background-color: rgba(var(--ion-color-medium-rgb), 0.7);
-  color: var(--ion-color-light);
-  padding: 20px;
-  border-radius: 10px;
-
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
+  ion-img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    object-position: top center;
   }
 
-  p {
-    font-size: 1rem;
-    font-weight: bold;
+  ion-img::part(image) {
+    border-radius: 0 0 10px 10px;
   }
+
+  .hero-text {
+    position: absolute;
+    background-color: rgba(var(--ion-color-medium-rgb), 0.7);
+    color: var(--ion-color-light);
+    padding: 20px;
+    border-radius: 10px;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.title {
+  font-size: 1.2em;
+  margin: 25px 0px 0px 25px;
 }

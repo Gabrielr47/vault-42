@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { ProductPage } from './product.page';
+import { ProductDetailComponent } from '@app/components/product/product-detail/product-detail.component';
+import { SearchComponent } from '@app/components/search/search.component';
+import { ApolloTestingModule } from 'apollo-angular/testing';
+import { IonicModule } from '@ionic/angular';
 
 describe('ProductPage', () => {
   let component: ProductPage;
@@ -10,6 +14,12 @@ describe('ProductPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ProductPage],
+      imports: [
+        IonicModule,
+        SearchComponent,
+        ProductDetailComponent,
+        ApolloTestingModule,
+      ],
       providers: [
         {
           provide: ActivatedRoute,

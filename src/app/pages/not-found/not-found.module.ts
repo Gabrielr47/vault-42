@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { NotFoundPageRoutingModule } from './not-found-routing.module';
 
-import { HomePage } from './home.page';
+import { NotFoundPage } from './not-found.page';
 import { SearchComponent } from '@app/components/search/search.component';
-import { CategoryListComponent } from '@app/components/category/category-list/category-list.component';
 import { HeroSectionComponent } from '@app/components/hero-section/hero-section.component';
 
 @NgModule({
@@ -16,11 +15,10 @@ import { HeroSectionComponent } from '@app/components/hero-section/hero-section.
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    NotFoundPageRoutingModule,
     SearchComponent,
-    CategoryListComponent,
     HeroSectionComponent,
   ],
-  declarations: [HomePage],
+  declarations: [NotFoundPage],
 })
-export class HomePageModule {}
+export class NotFoundPageModule {}

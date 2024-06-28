@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductsPage } from './products.page';
+import { ProductListComponent } from '@app/components/product/product-list/product-list.component';
+import { ApolloTestingModule } from 'apollo-angular/testing';
+import { SearchComponent } from '@app/components/search/search.component';
+import { IonicModule } from '@ionic/angular';
 
 describe('ProductsPage', () => {
   let component: ProductsPage;
@@ -7,6 +11,12 @@ describe('ProductsPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        IonicModule,
+        SearchComponent,
+        ProductListComponent,
+        ApolloTestingModule,
+      ],
       declarations: [ProductsPage],
     }).compileComponents();
   });

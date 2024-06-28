@@ -1,16 +1,14 @@
 <app-search />
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <div class="hero-section">
-    <ion-img src="../../../assets/hero-section.jpg" alt="Vault 42"></ion-img>
-    <div class="hero-text">
-      <h1>Welcome to Vault 42</h1>
-      <p>Preserving the Future, One Seed at a Time</p>
-      <ion-button color="primary" [routerLink]="['/products']">
-        Shop Now
-      </ion-button>
-    </div>
-  </div>
+<ion-content [fullscreen]="true">
+  <app-hero-section
+    imageName="hero-section"
+    imageAlt="Vault 42"
+    title="Welcome to Vault 42"
+    subtitle="Preserving the Future, One Seed at a Time"
+    buttonText="Shop Now"
+    buttonLink="/products"
+  />
 
   <app-category-list />
 </ion-content>

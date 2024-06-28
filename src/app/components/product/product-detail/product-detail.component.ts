@@ -5,6 +5,8 @@ import {
   OnInit,
   input,
 } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HeroSectionComponent } from '@app/components/hero-section/hero-section.component';
 import { GetProductListBySlugQuery } from '@app/core/graphql/product.graphql.generated';
 import { ProductService } from '@app/core/product.service';
 import { AssetImageUrlPipe } from '@app/pipes/asset-image-url.pipe';
@@ -23,7 +25,13 @@ export interface CountDown {
   styleUrls: ['./product-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [IonicModule, AssetImageUrlPipe, CommonModule],
+  imports: [
+    IonicModule,
+    AssetImageUrlPipe,
+    CommonModule,
+    RouterModule,
+    HeroSectionComponent,
+  ],
 })
 export class ProductDetailComponent implements OnInit {
   slug = input('');

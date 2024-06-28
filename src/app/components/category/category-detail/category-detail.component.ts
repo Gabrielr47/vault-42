@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { SkeletonLoadingComponent } from '@app/components/skeleton-loading/skeleton-loading.component';
 import { RouterModule } from '@angular/router';
+import { HeroSectionComponent } from '@app/components/hero-section/hero-section.component';
 
 @Component({
   selector: 'app-category-detail',
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     SkeletonLoadingComponent,
     RouterModule,
+    HeroSectionComponent,
   ],
 })
 export class CategoryDetailComponent implements OnInit {

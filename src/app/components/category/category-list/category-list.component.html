@@ -1,5 +1,5 @@
 @if (categoryList$ | async; as categoryList) {
-  <h1>
+  <h1 class="title">
     Browse by Category: <b>{{ categoryList.total }}</b> Results Found
   </h1>
   <ion-grid>
@@ -21,5 +21,11 @@
     </ion-row>
   </ion-grid>
 } @else {
+  <h1 class="title">
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 300px; height: 30px"
+    ></ion-skeleton-text>
+  </h1>
   <app-skeleton-loading [items]="13"></app-skeleton-loading>
 }

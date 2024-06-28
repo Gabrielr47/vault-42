@@ -1,6 +1,7 @@
 @if (productList$ | async; as productList) {
-  <h1>Seeds and Plants</h1>
-
+  <h1 class="title">
+    Browse by Products: <b>{{ productList.total }}</b> Results Found
+  </h1>
   <ion-grid>
     <ion-row>
       @for (product of productList.items; track product._id) {
@@ -26,5 +27,12 @@
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 } @else {
+  <h1 class="title">
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 300px; height: 20px"
+    ></ion-skeleton-text>
+  </h1>
+
   <app-skeleton-loading [items]="13"></app-skeleton-loading>
 }

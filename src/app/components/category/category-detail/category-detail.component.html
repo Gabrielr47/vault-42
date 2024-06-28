@@ -1,6 +1,13 @@
 @if (allProductsFromCategory$ | async; as categoryProducts) {
   @if (categoryProducts.total === 0) {
-    <h1>No Products found</h1>
+    <app-hero-section
+      imageName="hero-section-cannot-find-product"
+      imageAlt="No Products found"
+      title="Sorry, We're Out of Stock"
+      subtitle="No Products found"
+      buttonText="Go to Products"
+      buttonLink="/products"
+    />
   } @else {
     <ion-list>
       <ion-item lines="none">
