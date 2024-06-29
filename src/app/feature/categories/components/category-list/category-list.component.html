@@ -5,7 +5,7 @@
   <ion-grid>
     <ion-row>
       @for (category of categoryList.items; track category._id) {
-        <ion-col size-xs="6" size-md="3" size-lg="2">
+        <ion-col size-xs="6" size-md="3" size-lg="auto">
           <ion-card [routerLink]="['/category/', category.slug]">
             <img
               [alt]="category.title"

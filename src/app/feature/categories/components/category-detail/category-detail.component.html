@@ -32,7 +32,7 @@
   }
   <ion-row>
     @for (product of categoryProducts.items; track product._id) {
-      <ion-col size-xs="6" size-md="3" size-lg="2">
+      <ion-col size-xs="6" size-md="3" size-lg="auto">
         <ion-card [routerLink]="['/product/', product.slug]">
           <img
             [alt]="product.name"
