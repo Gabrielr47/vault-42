@@ -8,6 +8,7 @@ import { AboutPageRoutingModule } from './about-routing.module';
 
 import { AboutPage } from './about.page';
 import { SearchComponent } from '@app/shared/components/search/search.component';
+import { HeroSectionComponent } from '@app/shared/components/hero-section/hero-section.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { SearchComponent } from '@app/shared/components/search/search.component'
     IonicModule,
     AboutPageRoutingModule,
     SearchComponent,
+    HeroSectionComponent,
   ],
   declarations: [AboutPage],
 })

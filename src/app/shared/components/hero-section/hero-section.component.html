@@ -4,7 +4,7 @@
     [alt]="imageAlt"
     loading="lazy"
   />
-  <div class="hero-text">
+  <div class="hero-text" *ngIf="title && subtitle">
     <h1>{{ title }}</h1>
     <p>{{ subtitle }}</p>
     <ion-button [routerLink]="buttonLink">

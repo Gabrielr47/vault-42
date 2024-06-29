@@ -12,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
 })
 export class SidenavComponent {
   public appPages = [
-    { title: 'Home', url: '/home', icon: 'home' },
+    { title: 'Home', url: '/', icon: 'home' },
     { title: 'Categories', url: '/categories', icon: 'albums' },
     { title: 'Seeds and Plants', url: '/products', icon: 'leaf' },
     { title: 'About', url: '/about', icon: 'balloon' },

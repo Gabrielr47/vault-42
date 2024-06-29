@@ -19,9 +19,9 @@ import { IonicModule } from '@ionic/angular';
 export class HeroSectionComponent {
   @Input({ required: true }) imageName: string = '';
   @Input({ required: true }) imageAlt: string = '';
-  @Input({ required: true }) title: string = '';
-  @Input({ required: true }) subtitle: string = '';
-  @Input({ required: true }) buttonText: string = '';
-  @Input({ required: true }) buttonLink: string = '';
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
+  @Input() buttonText: string = '';
+  @Input() buttonLink: string = '';
   constructor() {}
 }
