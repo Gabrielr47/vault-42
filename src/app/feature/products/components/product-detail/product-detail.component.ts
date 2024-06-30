@@ -14,7 +14,7 @@ import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { IonicModule, ToastController } from '@ionic/angular';
 import { Observable, interval, map, startWith } from 'rxjs';
 
-export interface CountDown {
+interface CountDown {
   hours: number;
   minutes: number;
   seconds: number;

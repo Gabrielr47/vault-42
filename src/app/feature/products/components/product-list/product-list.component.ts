@@ -31,13 +31,13 @@ import {
   ],
 })
 export class ProductListComponent implements OnInit {
-  private readonly productSize = 20;
+  private productSize = 20;
   private productFrom$ = new BehaviorSubject<number>(this.productSize);
   private currentInfiniteEvent!: InfiniteScrollCustomEvent | null;
 
   productList$: Observable<GetProductListQuery['getProductList']> | undefined;
 
-  constructor(private readonly productService: ProductService) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.productList$ = this.productFrom$.pipe(

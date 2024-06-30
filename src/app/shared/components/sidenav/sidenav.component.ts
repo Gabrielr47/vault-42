@@ -11,7 +11,9 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, RouterModule],
 })
 export class SidenavComponent {
-  public appPages = [
+  appTitle = 'Vault 42';
+  appSubtitle = 'Would largest Seeds and Plants shop';
+  appPages = [
     { title: 'Home', url: '/', icon: 'home' },
     { title: 'Categories', url: '/categories', icon: 'albums' },
     { title: 'Seeds and Plants', url: '/products', icon: 'leaf' },

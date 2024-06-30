@@ -2,8 +2,8 @@
   <ion-menu contentId="main-content" type="overlay">
     <ion-content>
       <ion-list>
-        <ion-list-header>Vault 42</ion-list-header>
-        <ion-note>Would largest Seeds and Plants shop</ion-note>
+        <ion-list-header>{{ appTitle }}</ion-list-header>
+        <ion-note>{{ appSubtitle }}</ion-note>
 
         @for (page of appPages; track page.url) {
           <ion-menu-toggle auto-hide="false">

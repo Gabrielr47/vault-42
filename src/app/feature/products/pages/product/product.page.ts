@@ -3,8 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.page.html',
-  styleUrls: ['./product.page.scss'],
+  template: `
+    <app-search />
+    <ion-content [fullscreen]="true">
+      <app-product-detail *ngIf="slug" [slug]="slug" />
+    </ion-content>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductPage implements OnInit {

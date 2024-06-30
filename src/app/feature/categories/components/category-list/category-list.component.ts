@@ -32,7 +32,7 @@ export class CategoryListComponent implements OnInit {
     | Observable<GetCategoryListQuery['getCategoryList']>
     | undefined;
 
-  constructor(private readonly categoryService: CategoryService) {}
+  constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
     this.categoryList$ = this.categoryService

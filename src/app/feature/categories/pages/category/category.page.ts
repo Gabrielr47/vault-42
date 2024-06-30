@@ -3,8 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-category',
-  templateUrl: './category.page.html',
-  styleUrls: ['./category.page.scss'],
+  template: `
+    <app-search />
+    <ion-content [fullscreen]="true">
+      <app-category-detail *ngIf="slug" [slug]="slug"></app-category-detail>
+    </ion-content>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoryPage implements OnInit {
