@@ -14,12 +14,6 @@ import { AssetImageUrlPipe } from '@app/shared/pipes/asset-image-url.pipe';
 import { IonicModule, ToastController } from '@ionic/angular';
 import { Observable, interval, map, startWith } from 'rxjs';
 
-interface CountDown {
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -39,7 +33,13 @@ export class ProductDetailComponent implements OnInit {
   slug = input('');
 
   product$: Observable<GetProductListBySlugQuery['getProductList']> | undefined;
-  countdown$: Observable<CountDown> | undefined;
+  countdown$:
+    | Observable<{
+        hours: number;
+        minutes: number;
+        seconds: number;
+      }>
+    | undefined;
 
   constructor(
     private productService: ProductService,
@@ -63,7 +63,16 @@ export class ProductDetailComponent implements OnInit {
     );
   }
 
-  getTimeUntilMidnight() {
+  onAddToCard(productName: string) {
+    this.toastController
+      .create({
+        message: `TODO: Add ${productName} to cart`,
+        duration: 2000,
+      })
+      .then((toast) => toast.present());
+  }
+
+  private getTimeUntilMidnight() {
     const now = new Date() as Date;
     const midnight = new Date(
       now.getFullYear(),
@@ -75,14 +84,5 @@ export class ProductDetailComponent implements OnInit {
       0,
     ) as Date;
     return midnight.getTime() - now.getTime();
-  }
-
-  onAddToCard(productName: string) {
-    this.toastController
-      .create({
-        message: `TODO: Add ${productName} to cart`,
-        duration: 2000,
-      })
-      .then((toast) => toast.present());
   }
 }
